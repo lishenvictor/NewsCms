@@ -38,5 +38,5 @@
 	</bean>
 
 	<!-- 使用注解的包，包括子集 -->
-	<context:component-scan base-package="blog.open1111.controller" />
-</beans>  
+	<context:component-scan base-package="news.ssp.controller" />
+</beans>

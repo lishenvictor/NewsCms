@@ -51,7 +51,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
 	</listener>
 	
 	<listener>
-		<listener-class>blog.open1111.service.impl.InitComponent</listener-class>
+		<listener-class>news.ssp.service.impl.InitComponent</listener-class>
 	</listener>
 	
 	

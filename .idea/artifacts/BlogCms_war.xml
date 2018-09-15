@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="BlogCms:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="BlogCms.war">
-      <element id="artifact" artifact-name="BlogCms:war exploded" />
-    </root>
-  </artifact>
-</component>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="news.ssp.dao.ArticleDao">
+
+	<resultMap type="Article" id="ArticleResult">
+		<result property="id" column="id"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="summary" column="summary"/>
+		<result property="crawlerDate" column="crawlerDate"/>
+		<result property="releaseDate" column="releaseDate"/>
+		<result property="clickHit" column="clickHit"/>
+		<result property="tags" column="tags"/>
+		<result property="orUrl" column="orUrl"/>
+		<result property="state" column="state"/>
+		<association property="arcType" column="typeId" select="news.ssp.dao.ArcTypeDao.findById"></association>
+	</resultMap>
+	
+	<select id="getNumByTypeId" parameterType="Integer" resultType="Integer">
+		select count(*) from t_article where typeId=#{typeId}
+	</select>
+	
+	<select id="list" parameterType="Map" resultMap="ArticleResult">
+		select * from t_article
+		<where>
+			<if test="title!=null and title!='' ">
+				and title like #{title}
+			</if>
+		</where>
+		order by crawlerDate desc
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+	
+	<select id="list2" parameterType="Map" resultMap="ArticleResult">
+		select * from t_article
+		<where>
+			<if test="typeId!=null and typeId!='' ">
+				and typeId=#{typeId}
+			</if>
+			and releaseDate is not null
+		</where>
+		order by releaseDate desc
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+	
+	<select id="getTotal" parameterType="Map" resultType="Long">
+		select count(*) from t_article
+		<where>
+			<if test="title!=null and title!='' ">
+				and title like #{title}
+			</if>
+		</where>
+	</select>
+	
+	<select id="getTotal2" parameterType="Map" resultType="Long">
+		select count(*) from t_article
+		<where>
+			<if test="typeId!=null and typeId!='' ">
+				and typeId=#{typeId}
+			</if>
+			and releaseDate is not null
+		</where>
+	</select>
+	
+	<select id="getHot" resultMap="ArticleResult">
+		select * from t_article where state=1 order by clickHit desc limit 0,7
+	</select>
+	
+	<insert id="add" useGeneratedKeys="true" keyProperty="id" parameterType="Article">
+		insert into t_article values(null,#{title},#{content},#{summary},#{crawlerDate},0,#{arcType.id},#{tags},#{orUrl},#{state},#{releaseDate})
+	</insert>
+	
+	<delete id="delete" parameterType="Integer">
+		delete from t_article where id=#{id}
+	</delete>
+	
+	<update id="update" parameterType="Article">
+		update t_article
+		<set>
+			<if test="title!=null and title!='' ">
+				title=#{title},
+			</if>
+			<if test="content!=null and content!='' ">
+				content=#{content},
+			</if>
+			<if test="summary!=null and summary!='' ">
+				summary=#{summary},
+			</if>
+			<if test="crawlerDate!=null">
+				crawlerDate=#{crawlerDate},
+			</if>
+			<if test="clickHit!=null">
+				clickHit=#{clickHit},
+			</if>
+			<if test="arcType.id!=null">
+				typeId=#{arcType.id},
+			</if>
+			<if test="tags!=null and tags!='' ">
+				tags=#{tags},
+			</if>
+			<if test="orUrl!=null and orUrl!='' ">
+				orUrl=#{orUrl},
+			</if>
+			<if test="state!=null">
+				state=#{state},
+			</if>
+			<if test="releaseDate!=null">
+				releaseDate=#{releaseDate},
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+	
+	<select id="findById" parameterType="Integer" resultMap="ArticleResult">
+		select * from t_article where id=#{id}
+	</select>
+	
+	<select id="getLastArticle" parameterType="Integer" resultMap="ArticleResult">
+		SELECT * FROM t_article WHERE state=1 AND id &lt; #{id} ORDER BY id DESC LIMIT 1
+	</select>
+	
+	<select id="getNextArticle" parameterType="Integer" resultMap="ArticleResult">
+		SELECT * FROM t_article WHERE state=1 AND id &gt; #{id} ORDER BY id ASC LIMIT 1
+	</select>
+	
+</mapper> 

@@ -6,6 +6,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	
 	<!-- 别名 -->
 	<typeAliases>
-		<package name="blog.open1111.entity"/>
+		<package name="news.ssp.entity"/>
 	</typeAliases>
 </configuration>
