@@ -86,7 +86,7 @@
 	<table style="padding: 5px" width="100%">
 		<tr>
 			<td width="50%">
-				<img alt="logo" src="${pageContext.request.contextPath}/static/images/logo1.png"/>
+				<%--<img alt="logo" src="${pageContext.request.contextPath}/static/images/logo1.png"/>--%>
 			</td>
 			<td align="right" valign="bottom" width="50%">
 				<font size="3">&nbsp;&nbsp;欢迎：<strong>${currentUser.userName }</strong></font>
@@ -103,8 +103,9 @@
 </div>
 <div region="west" style="width: 200px" split="true" title="导航菜单">
 	<div style="padding-top: 10px;padding-left: 10px">
-		<a href="javascript:openTab('帖子信息管理','articleManage.jsp','icon-bkgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-bkgl'" style="width: 150px;">帖子信息管理</a>
-		<a href="javascript:openTab('帖子类别管理','arcTypeManage.jsp','icon-bklb')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-bklb'" style="width: 150px;">帖子类别管理</a>
+		<a href="javascript:openTab('新闻信息管理','articleManage.jsp','icon-bkgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-bkgl'" style="width: 150px;">新闻信息管理</a>
+		<a href="javascript:openTab('新闻类别管理','arcTypeManage.jsp','icon-bklb')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-bklb'" style="width: 150px;">新闻类别管理</a>
+		<a href="javascript:openTab('新闻爬虫管理','articleCrawlerManage.jsp','icon-bkgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-bkgl'" style="width: 150px;">新闻爬虫管理</a>
 		<a href="javascript:openTab('友情链接管理','linkManage.jsp','icon-link')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-link'" style="width: 150px;">友情链接管理</a>
 		<a href="javascript:openPasswordModifyDialog()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-modifyPassword'" style="width: 150px;">修改密码</a>
 		<a href="javascript:logout()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-exit'" style="width: 150px;">安全退出</a>

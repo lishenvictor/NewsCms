@@ -5,7 +5,7 @@
   <artifactId>NewsCms</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>BlogCms Maven Webapp</name>
+  <name>NewsCms Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <!-- 添加Servlet支持 -->
@@ -233,9 +233,38 @@
     <version>1.1.2-offical</version>
 </dependency>
 
-	
+	  <!-- 添加Httpclient支持 -->
+	  <dependency>
+		  <groupId>org.apache.httpcomponents</groupId>
+		  <artifactId>httpclient</artifactId>
+		  <version>4.5.2</version>
+	  </dependency>
+	  <!-- 添加jsoup支持 -->
+	  <dependency>
+		  <groupId>org.jsoup</groupId>
+		  <artifactId>jsoup</artifactId>
+		  <version>1.10.1</version>
+	  </dependency>
+	  <!-- 添加ehcache支持 -->
+	  <dependency>
+		  <groupId>net.sf.ehcache</groupId>
+		  <artifactId>ehcache</artifactId>
+		  <version>2.10.3</version>
+	  </dependency>
+	  <!-- 添加commons io支持 -->
+	  <dependency>
+		  <groupId>commons-io</groupId>
+		  <artifactId>commons-io</artifactId>
+		  <version>2.5</version>
+	  </dependency>
+	  <dependency>
+		  <groupId>junit</groupId>
+		  <artifactId>junit</artifactId>
+		  <version>RELEASE</version>
+		  <scope>compile</scope>
+	  </dependency>
   </dependencies>
   <build>
-    <finalName>BlogCms</finalName>
+    <finalName>NewsCms</finalName>
   </build>
 </project>

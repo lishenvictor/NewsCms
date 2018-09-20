@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>帖子管理页面</title>
+<title>新闻管理页面</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/icon.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.min.js"></script>
@@ -32,17 +32,17 @@
 	}
 	
 	function openArticleAddTag(){
-		window.parent.openTab("添加帖子","articleAdd.jsp","icon-writeArticle");
+		window.parent.openTab("添加新闻","articleAdd.jsp","icon-writeArticle");
 	}
 	
 	function openArticleModifyTag(){
 		var selectedRows=$("#dg").datagrid("getSelections");
 		if(selectedRows.length!=1){
-			$.messager.alert("系统提示","请选择一个要修改的帖子");
+			$.messager.alert("系统提示","请选择一个要修改的新闻");
 			return;
 		}
 		var row=selectedRows[0];
-		window.parent.openTab("修改帖子","articleModify.jsp?id="+row.id,"icon-writeArticle");
+		window.parent.openTab("修改新闻","articleModify.jsp?id="+row.id,"icon-writeArticle");
 	}
 	
 	function deleteArticle(){
@@ -72,7 +72,7 @@
 </script>
 </head>
 <body style="margin: 1px">
-<table id="dg" class="easyui-datagrid" title="帖子管理" 
+<table id="dg" class="easyui-datagrid" title="新闻管理"
   fitColumns="true" pagination="true" rownumbers="true" 
   url="${pageContext.request.contextPath}/admin/article/list.do" fit="true" toolbar="#tb">
   <thead>
@@ -82,7 +82,7 @@
   		<th field="title" width="150" formatter="formatTitle">标题</th>
   		<th field="crawlerDate" width="80" align="center">抓取日期</th>
   		<th field="orUrl" width="150" align="center">原始地址</th>
-  		<th field="state" width="40" align="center" formatter="formatState">帖子状态</th>
+  		<th field="state" width="40" align="center" formatter="formatState">新闻状态</th>
   	</tr>
   </thead>
 </table>

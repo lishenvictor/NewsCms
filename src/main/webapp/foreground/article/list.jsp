@@ -6,7 +6,7 @@
 <div class="data_list">
 		<div class="data_list_title">
 		<img src="${pageContext.request.contextPath}/static/images/list_icon.png"/>
-		最新帖子</div>
+		最新新闻</div>
 		<div class="datas">
 			<ul>
 				<c:forEach var="article" items="${articleList }">

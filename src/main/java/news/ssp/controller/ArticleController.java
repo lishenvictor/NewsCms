@@ -18,7 +18,7 @@ import news.ssp.service.ArticleService;
 import news.ssp.util.StringUtil;
 
 /**
- * 帖子Controller类
+ * 新闻Controller类
  * @author user
  *
  */
@@ -35,7 +35,7 @@ public class ArticleController {
 		ModelAndView mav=new ModelAndView();
 		Article article=articleService.findById(id);
 		article.setClickHit(article.getClickHit()+1);
-		articleService.update(article); // 帖子点击次数+1
+		articleService.update(article); // 新闻点击次数+1
 		String tags=article.getTags();
 		if(StringUtil.isNotEmpty(tags)){
 			String arr[]=tags.split(" ");

@@ -3,7 +3,7 @@ package news.ssp.entity;
 import java.util.Date;
 
 /**
- * 帖子实体类
+ * 新闻实体类
  * @author user
  *
  */
@@ -16,10 +16,10 @@ public class Article {
 	private Date crawlerDate; // 抓取日期
 	private Date releaseDate; // 发布日期
 	private Integer clickHit; // 浏览次数
-	private ArcType arcType; // 帖子类别
-	private String tags; // 帖子标签
+	private ArcType arcType; // 新闻类别
+	private String tags; // 新闻标签
 	private String orUrl; // 原始地址
-	private Integer state; // 帖子状态 0 未发布 1 发布 默认0
+	private Integer state; // 新闻状态 0 未发布 1 发布 默认0
 	private String releaseDateStr; // 发布日期的字符串 只取年和月
 	private String contentNoTag;
 	

@@ -12,7 +12,7 @@
 <div class="data_list">
 	<div class="data_list_title">
 		<img src="${pageContext.request.contextPath}/static/images/blog_show_icon.png"/>
-		帖子信息
+		新闻信息
 	</div>
 	<div>
 	   <div class="article_title"><h3><strong>${article.title }</strong></h3></div>
@@ -20,7 +20,7 @@
 		<div class="bshare-custom"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count">0</span></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=1&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
 	   </div>
 		<div class="article_info">
-			转载自：<a href="${article.orUrl }" target="_blank">互联网</a>&nbsp;&nbsp;发布时间：『 <fmt:formatDate value="${article.releaseDate }" type="date" pattern="yyyy-MM-dd HH:mm"/>』&nbsp;&nbsp;帖子类别：${article.arcType.typeName }&nbsp;&nbsp;阅读(${article.clickHit }) 
+			转载自：<a href="${article.orUrl }" target="_blank">互联网</a>&nbsp;&nbsp;发布时间：『 <fmt:formatDate value="${article.releaseDate }" type="date" pattern="yyyy-MM-dd HH:mm"/>』&nbsp;&nbsp;新闻类别：${article.arcType.typeName }&nbsp;&nbsp;阅读(${article.clickHit })
 		</div>
 		<div class="article_content">
 			${article.content }

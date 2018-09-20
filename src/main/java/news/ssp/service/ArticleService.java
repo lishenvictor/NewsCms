@@ -6,14 +6,14 @@ import java.util.Map;
 import news.ssp.entity.Article;
 
 /**
- * 帖子Service接口
+ * 新闻Service接口
  * @author user
  *
  */
 public interface ArticleService {
 
 	/**
-	 * 查询执行帖子类别下的帖子个数
+	 * 查询执行新闻类别下的新闻个数
 	 * @param typeId
 	 * @return
 	 */
@@ -34,34 +34,34 @@ public interface ArticleService {
 	public Long getTotal(Map<String,Object> map);
 	
 	/**
-	 * 获取7条热门帖子
+	 * 获取7条热门新闻
 	 * @return
 	 */
 	public List<Article> getHot();
 	
 	/**
-	 * 添加帖子信息
+	 * 添加新闻信息
 	 * @param article
 	 * @return
 	 */
 	public Integer add(Article article);
 	
 	/**
-	 * 删除帖子信息
+	 * 删除新闻信息
 	 * @param id
 	 * @return
 	 */
 	public Integer delete(Integer id);
 	
 	/**
-	 * 修改帖子信息
+	 * 修改新闻信息
 	 * @param article
 	 * @return
 	 */
 	public Integer update(Article article);
 	
 	/**
-	 * 通过id查询帖子
+	 * 通过id查询新闻
 	 * @param id
 	 * @return
 	 */
@@ -82,14 +82,14 @@ public interface ArticleService {
 	public Long getTotal2(Map<String,Object> map);
 	
 	/**
-	 * 获取上一个帖子
+	 * 获取上一个新闻
 	 * @param id
 	 * @return
 	 */
 	public Article getLastArticle(Integer id);
 	
 	/**
-	 * 获取下一个帖子
+	 * 获取下一个新闻
 	 * @param id
 	 * @return
 	 */

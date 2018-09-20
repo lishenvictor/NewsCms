@@ -12,7 +12,7 @@ import news.ssp.entity.Article;
 import news.ssp.service.ArticleService;
 
 /**
- * 帖子Service实现类
+ * 新闻Service实现类
  * @author user
  *
  */

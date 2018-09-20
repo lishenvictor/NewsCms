@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>帖子类别管理页面</title>
+<title>新闻类别管理页面</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/icon.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.min.js"></script>
@@ -15,7 +15,7 @@
 	var url;
 
 	function openArcTypeAddDialog(){
-		$("#dlg").dialog("open").dialog("setTitle","添加帖子类别信息");
+		$("#dlg").dialog("open").dialog("setTitle","添加新闻类别信息");
 		url="${pageContext.request.contextPath}/admin/arcType/save.do";
 	}
 	
@@ -26,7 +26,7 @@
 			return;
 		}
 		var row=selectedRows[0];
-		$("#dlg").dialog("open").dialog("setTitle","编辑帖子类别信息");
+		$("#dlg").dialog("open").dialog("setTitle","编辑新闻类别信息");
 		$("#fm").form("load",row);
 		url="${pageContext.request.contextPath}/admin/arcType/save.do?id="+row.id;
 	}
@@ -93,14 +93,14 @@
 </script>
 </head>
 <body style="margin: 1px">
-<table id="dg" class="easyui-datagrid" title="帖子类别管理" 
+<table id="dg" class="easyui-datagrid" title="新闻类别管理"
   fitColumns="true" pagination="true" rownumbers="true" 
   url="${pageContext.request.contextPath}/admin/arcType/list.do" fit="true" toolbar="#tb">
   <thead>
   	<tr>
   		<th field="cb" checkbox="true" align="center"></th>
   		<th field="id" width="20" align="center">编号</th>
-  		<th field="typeName" width="80" align="center">帖子类别名称</th>
+  		<th field="typeName" width="80" align="center">新闻类别名称</th>
   		<th field="sortNo" width="30" align="center">排列序号</th>
   	</tr>
   </thead>
@@ -115,7 +115,7 @@
 	<form id="fm" method="post">
 		<table cellspacing="8px">
 			<tr>
-				<td>帖子类别名称：</td>
+				<td>新闻类别名称：</td>
 				<td>
 					<input type="text" id="typeName" name="typeName" class="easyui-validatebox" required="true"/>
 				</td>

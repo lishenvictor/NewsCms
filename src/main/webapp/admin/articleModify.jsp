@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>帖子修改页面</title>
+<title>新闻修改页面</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/themes/icon.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.min.js"></script>
@@ -32,9 +32,9 @@
 		if(title==null || title==''){
 			alert("请输入标题！");
 		}else if(typeId==-1){
-			alert("请选择帖子类别！");
+			alert("请选择新闻类别！");
 		}else if(state==-1){
-			alert("请选择帖子状态！");
+			alert("请选择新闻状态！");
 		}else if(orUrl==null || orUrl==''){
 			alert("请输入抓取地址！");
 		}else if(crawlerDate==null || crawlerDate==''){
@@ -46,10 +46,10 @@
 		}else{
 			$.post("${pageContext.request.contextPath}/admin/article/save.do",{'id':'${param.id}','title':title,'contentNoTag':contentNoTag,'content':content,'summary':summary,'crawlerDate':crawlerDate,'arcType.id':typeId,'tags':tags,'orUrl':orUrl,'state':state},function(result){
 				if(result.success){
-					$.messager.alert("系统提示","帖子发布成功！");
+					$.messager.alert("系统提示","新闻发布成功！");
 					resetValue();
 				}else{
-					$.messager.alert("系统提示","帖子发布失败！");
+					$.messager.alert("系统提示","新闻发布失败！");
 				}
 			},"json");
 		}
@@ -68,19 +68,19 @@
 </script>
 </head>
 <body style="margin: 10px">
-	<div id="p" class="easyui-panel" title="修改帖子" style="padding: 10px">
+	<div id="p" class="easyui-panel" title="修改新闻" style="padding: 10px">
 		<table cellspacing="10px">
 			<tr>
-				<td width="80px">帖子标题：</td>
+				<td width="80px">新闻标题：</td>
 				<td>
 					<input type="text" id="title" name="title" style="width: 400px"/>
 				</td>
 			</tr>
 			<tr>
-				<td>帖子类别：</td>
+				<td>新闻类别：</td>
 				<td>
 					<select class="easyui-combobox" style="width: 154px" id="typeId" name="arcType.id" editable="false" panelHeight="auto">
-						<option value="-1">请选择帖子类别...</option>
+						<option value="-1">请选择新闻类别...</option>
 						<c:forEach var="arcType" items="${arcTypeList }">
 							<option value="${arcType.id }">${arcType.typeName }</option>
 						</c:forEach>
@@ -88,10 +88,10 @@
 				</td>
 			</tr>
 			<tr>
-				<td>帖子状态：</td>
+				<td>新闻状态：</td>
 				<td>
 					<select class="easyui-combobox" style="width: 154px" id="state" name="state" editable="false" panelHeight="auto">
-						<option value="-1">请选择帖子类别...</option>
+						<option value="-1">请选择新闻类别...</option>
 						<option value="0">未发布</option>
 						<option value="1">已发布</option>
 					</select>
@@ -116,7 +116,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td valign="top">帖子内容：</td>
+				<td valign="top">新闻内容：</td>
 				<td width="900px">
 					<script id="editor" type="text/plain" style="width:100%;height:500px;"></script>
 				</td>
@@ -124,7 +124,7 @@
 			<tr>
 				<td></td>
 				<td>
-					<a href="javascript:submitData()" class="easyui-linkbutton" iconCls="icon-submit">发布帖子</a>
+					<a href="javascript:submitData()" class="easyui-linkbutton" iconCls="icon-submit">发布新闻</a>
 				</td>
 			</tr>
 		</table>

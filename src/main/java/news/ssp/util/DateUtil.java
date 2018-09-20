@@ -11,6 +11,17 @@ import java.util.Date;
 public class DateUtil {
 
 	/**
+	 * 获取当前年月日路径
+	 * @return
+	 * @throws Exception
+	 */
+	public static String getCurrentDatePath()throws Exception{
+		Date date=new Date();
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy/MM/dd");
+		return sdf.format(date);
+	}
+
+	/**
 	 * 日期对象转字符串
 	 * @param date
 	 * @param format

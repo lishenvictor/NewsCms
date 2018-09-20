@@ -103,7 +103,7 @@ public class ArcTypeAdminController {
 		JSONObject result=new JSONObject();
 		for(int i=0;i<idsStr.length;i++){
 			if(articleService.getNumByTypeId(Integer.parseInt(idsStr[i]))>0){
-				result.put("exist", "帖子类别下有帖子，不能删除");
+				result.put("exist", "新闻类别下有新闻，不能删除");
 			}else{
 				arcTypeService.delete(Integer.parseInt(idsStr[i]));				
 			}

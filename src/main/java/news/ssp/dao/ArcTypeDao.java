@@ -6,7 +6,7 @@ import java.util.Map;
 import news.ssp.entity.ArcType;
 
 /**
- * 帖子类别Dao接口
+ * 新闻类别Dao接口
  * @author user
  *
  */
@@ -41,7 +41,7 @@ public interface ArcTypeDao {
 	public Integer update(ArcType arcType);
 	
 	/**
-	 * 根据id查询帖子类型实体
+	 * 根据id查询新闻类型实体
 	 * @param id
 	 * @return
 	 */

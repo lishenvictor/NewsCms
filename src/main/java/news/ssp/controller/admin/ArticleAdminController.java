@@ -80,7 +80,7 @@ public class ArticleAdminController {
 	}
 	
 	/**
-	 * 添加或者修改帖子
+	 * 添加或者修改新闻
 	 * @param article
 	 * @param response
 	 * @return
@@ -126,7 +126,7 @@ public class ArticleAdminController {
 	}
 	
 	/**
-	 * 删除帖子信息
+	 * 删除新闻信息
 	 * @param ids
 	 * @param response
 	 * @return

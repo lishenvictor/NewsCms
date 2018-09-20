@@ -12,7 +12,7 @@ import news.ssp.entity.ArcType;
 import news.ssp.service.ArcTypeService;
 
 /**
- * 帖子类别Service实现类
+ * 新闻类别Service实现类
  * @author user
  *
  */

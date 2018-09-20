@@ -6,7 +6,7 @@ import java.util.Map;
 import news.ssp.entity.ArcType;
 
 /**
- * 帖子类别Service接口
+ * 新闻类别Service接口
  * @author user
  *
  */

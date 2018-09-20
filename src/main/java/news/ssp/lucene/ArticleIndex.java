@@ -52,7 +52,7 @@ public class ArticleIndex {
 	 * @throws Exception
 	 */
 	private IndexWriter getWriter()throws Exception{
-		dir=FSDirectory.open(Paths.get("E://lucene"));
+		dir=FSDirectory.open(Paths.get("D://lucene"));
 		System.out.println("1234"+dir);
 		SmartChineseAnalyzer analyzer=new SmartChineseAnalyzer();
 		IndexWriterConfig iwc=new IndexWriterConfig(analyzer);
@@ -83,7 +83,7 @@ public class ArticleIndex {
 	
 	/**
 	 * 删除指定博客的索引
-	 * @param ArticleId
+	 * @param articleId
 	 * @throws Exception
 	 */
 	public void deleteIndex(String articleId)throws Exception{
@@ -96,7 +96,7 @@ public class ArticleIndex {
 	
 	/**
 	 * 更新博客索引
-	 * @param Article
+	 * @param article
 	 * @throws Exception
 	 */
 	public void updateIndex(Article article)throws Exception{
@@ -118,7 +118,7 @@ public class ArticleIndex {
 	 * @throws Exception
 	 */
 	public List<Article> searchArticle(String q)throws Exception{
-		dir=FSDirectory.open(Paths.get("E://lucene"));
+		dir=FSDirectory.open(Paths.get("D://lucene"));
 		IndexReader reader=DirectoryReader.open(dir);
 		IndexSearcher is=new IndexSearcher(reader);
 		BooleanQuery.Builder booleanQuery=new BooleanQuery.Builder();

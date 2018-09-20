@@ -34,7 +34,7 @@
     	<div class="data_list">
 				<div class="data_list_title">
 					<img src="${pageContext.request.contextPath}/static/images/byType_icon.png"/>
-					按帖子类别
+					按新闻类别
 				</div>
 				<div class="datas">
 					<ul>
@@ -48,7 +48,7 @@
 			<div class="data_list">
 				<div class="data_list_title">
 					<img src="${pageContext.request.contextPath}/static/images/hot_icon.png"/>
-					热门帖子
+					热门新闻
 				</div>
 				<div class="hostDatas">
 					<ul>
