@@ -3977,7 +3977,7 @@
     });
     /**
      * 代码来自于：https://github.com/blueimp/JavaScript-Load-Image
-     * 暂时项目中只用了orientation.
+     * 暂时project中只用了orientation.
      *
      * 去除了 Exif Sub IFD Pointer, GPS Info IFD Pointer, Exif Thumbnail.
      * @fileOverview EXIF解析

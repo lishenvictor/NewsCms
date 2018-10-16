@@ -27,4 +27,20 @@ public class PropertiesUtil {
 		}
 		return prop.getProperty(key);
 	}
+	/**
+	 * 根据key获取value值
+	 * @param key
+	 * @return
+	 */
+	public static String getValue2(String key){
+		Properties prop=new Properties();
+		InputStream in=new PropertiesUtil().getClass().getResourceAsStream("/crawler-service.properties");
+		try {
+			prop.load(in);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return prop.getProperty(key);
+	}
 }

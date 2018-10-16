@@ -112,7 +112,7 @@
 	</div>
 </div>
 <div region="south" style="height: 25px;padding-top: 5px" align="center">
-	Copyright © 2017-2018  李申  版权所有
+	Copyright © 2017-2018  史苏萍  版权所有
 </div>
 
 <div id="dlg" class="easyui-dialog" style="width: 400px;height: 200px;padding: 10px 20px" closed="true" buttons="#dlg-buttons">

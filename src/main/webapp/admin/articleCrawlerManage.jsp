@@ -13,32 +13,37 @@
 <script type="text/javascript">
 
 	var url;
-	function Crawler(){
-        url="${pageContext.request.contextPath}/admin/arcType/save.do";
-		$("#fm").form("submit",{
-			url:url,
-			onSubmit:function(){
-				return $(this).form("validate");
-			},
-			success:function(result){
-				var result=eval('('+result+')');
-				if(result.success){
-					$.messager.alert("系统提示","保存成功！");
-					resetValue();
-					$("#dlg").dialog("close");
-					$("#dg").datagrid("reload");
-				}
+    function crawler(type){
+        $("#result").html("正在爬取新闻......");
+		$.post("${pageContext.request.contextPath}/admin/crawler/getNews.do",{type:type},function(result){
+			if(result.success){
+			    if(type == "1") {
+                    $("#result").html("爬取网易新闻"+result.count+"篇");
+                }else if(type == "2"){
+                    $("#result").html("爬取腾讯新闻"+result.count+"篇");
+                }else{
+                    $("#result").html("爬取搜狐新闻"+result.count+"篇");
+                }
+				$.messager.alert("系统提示","爬取新闻成功！");
+			}else{
+				$.messager.alert("系统提示","爬取新闻失败！");
 			}
-		});
+		},"json");
 	}
 	
 </script>
 </head>
 <body style="margin: 1px">
+<div style="padding-top: 0px">
 <table id="dg" class="easyui-datagrid" title="新闻爬虫管理" fit="true" toolbar="#tb">
 </table>
-<div>
-	<a href="javascript:Crawler()" class="easyui-linkbutton" iconCls="icon-search" plain="true">开始爬虫</a>
+</div>
+<div align="center" style="padding-top: 100px"><font id="result" color="red" size="10"></font></div>
+
+<div id="tb">
+	<a href="javascript:crawler('1')" class="easyui-linkbutton" iconCls="icon-add" plain="true">网易</a>
+	<a href="javascript:crawler('2')" class="easyui-linkbutton" iconCls="icon-edit" plain="true">腾讯</a>
+	<a href="javascript:crawler('3')" class="easyui-linkbutton" iconCls="icon-remove" plain="true">搜狐</a>
 </div>
 </body>
 </html>
