@@ -44,7 +44,7 @@ public class ArticleController {
 			mav.addObject("tags", tags);
 		}
 		mav.addObject("article", article);
-		mav.addObject("pageTitle",article.getTitle()+"_技术博客网");
+		mav.addObject("pageTitle",article.getTitle()+"_新闻网");
 		mav.addObject("pageCode", this.getUpAndDownPageCode(articleService.getLastArticle(id), articleService.getNextArticle(id), request.getServletContext().getContextPath()));
 		mav.addObject("mainPage", "foreground/article/view.jsp");
 		mav.setViewName("mainTemp");
@@ -86,7 +86,7 @@ public class ArticleController {
 			page="1";
 		}
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("pageTitle", "搜索关键字'"+q+"'结果页面_技术博客网");
+		mav.addObject("pageTitle", "搜索关键字'"+q+"'结果页面_新闻网");
 		mav.addObject("mainPage", "foreground/article/result.jsp");
 		List<Article> articleList=articleIndex.searchArticle(q);
 		Integer toIndex=articleList.size()>=Integer.parseInt(page)*pageSize?Integer.parseInt(page)*pageSize:articleList.size();

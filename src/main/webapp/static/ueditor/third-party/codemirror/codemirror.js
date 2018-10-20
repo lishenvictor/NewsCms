@@ -114,7 +114,7 @@ var CodeMirror = (function() {
         connect(scroller, "dragenter", e_stop);
         connect(scroller, "dragover", e_stop);
         connect(scroller, "drop", operation(onDrop));
-        connect(scroller, "paste", function(){focusInput(); fastPoll();});
+        connect(scroller, "paste", function(){focucontent(); fastPoll();});
         connect(input, "paste", fastPoll);
         connect(input, "cut", operation(function(){replaceSelection("");}));
 
@@ -135,7 +135,7 @@ var CodeMirror = (function() {
             setValue: operation(setValue),
             getSelection: getSelection,
             replaceSelection: operation(replaceSelection),
-            focus: function(){focusInput(); onFocus(); fastPoll();},
+            focus: function(){focucontent(); onFocus(); fastPoll();},
             setOption: function(option, value) {
                 var oldVal = options[option];
                 options[option] = value;
@@ -330,7 +330,7 @@ var CodeMirror = (function() {
             var now = +new Date;
             if (lastDoubleClick && lastDoubleClick.time > now - 400 && posEq(lastDoubleClick.pos, start)) {
                 e_preventDefault(e);
-                setTimeout(focusInput, 20);
+                setTimeout(focucontent, 20);
                 return selectLine(start.line);
             } else if (lastClick && lastClick.time > now - 400 && posEq(lastClick.pos, start)) {
                 lastDoubleClick = {time: now, pos: start};
@@ -350,7 +350,7 @@ var CodeMirror = (function() {
                     if (Math.abs(e.clientX - e2.clientX) + Math.abs(e.clientY - e2.clientY) < 10) {
                         e_preventDefault(e2);
                         setCursor(start.line, start.ch, true);
-                        focusInput();
+                        focucontent();
                     }
                 }), true);
                 draggingText = true;
@@ -382,7 +382,7 @@ var CodeMirror = (function() {
                 var cur = posFromMouse(e);
                 if (cur) setSelectionUser(start, cur);
                 e_preventDefault(e);
-                focusInput();
+                focucontent();
                 updateInput = true;
                 move(); up();
             }), true);
@@ -426,7 +426,7 @@ var CodeMirror = (function() {
                         var curFrom = sel.from, curTo = sel.to;
                         setSelectionUser(pos, end);
                         if (draggingText) replaceRange("", curFrom, curTo);
-                        focusInput();
+                        focucontent();
                     }
                 }
                 catch(e){}
@@ -751,7 +751,7 @@ var CodeMirror = (function() {
             } else if (user) prevInput = input.value = "";
         }
 
-        function focusInput() {
+        function focucontent() {
             if (!options.readOnly) input.focus();
         }
 
@@ -1498,7 +1498,7 @@ var CodeMirror = (function() {
                 "border-width: 0; outline: none; overflow: hidden; opacity: .05; filter: alpha(opacity=5);";
             leaveInputAlone = true;
             var val = input.value = getSelection();
-            focusInput();
+            focucontent();
             input.select();
             function rehide() {
                 var newVal = splitLines(input.value).join("\n");

@@ -22,6 +22,8 @@ public class Article {
 	private Integer state; // 新闻状态 0 未发布 1 发布 默认0
 	private String releaseDateStr; // 发布日期的字符串 只取年和月
 	private String contentNoTag;
+	private String source;
+	private String purecontent;
 	
 	public Integer getId() {
 		return id;
@@ -32,6 +34,23 @@ public class Article {
 	public String getTitle() {
 		return title;
 	}
+
+	public String getSource() {
+		return source;
+	}
+
+	public void setSource(String source) {
+		this.source = source;
+	}
+
+	public String getPurecontent() {
+		return purecontent;
+	}
+
+	public void setPurecontent(String purecontent) {
+		this.purecontent = purecontent;
+	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}

@@ -19,7 +19,7 @@ import news.ssp.util.PageUtil;
 import news.ssp.util.StringUtil;
 
 /**
- * Ö÷Ò³ControllerÀà
+ * ä¸»é¡µControllerç±»
  * @author user
  *
  */
@@ -31,7 +31,7 @@ public class IndexController {
 	private ArticleService articleService;
 	
 	/**
-	 * ÇëÇóÖ÷Ò³
+	 * è¯·æ±‚ä¸»é¡µ
 	 * @return
 	 * @throws Exception
 	 */
@@ -48,7 +48,7 @@ public class IndexController {
 		map.put("typeId", typeId);
 		List<Article> articleList=articleService.list2(map);
 		Long total=articleService.getTotal2(map);
-		mav.addObject("pageTitle", "¼¼Êõ²©¿ÍÍø");
+		mav.addObject("pageTitle", "æ–°é—»ç½‘");
 		mav.addObject("mainPage", "foreground/article/list.jsp");
 		mav.addObject("articleList", articleList);
 		StringBuffer param=new StringBuffer();
@@ -61,14 +61,14 @@ public class IndexController {
 	}
 	
 	/**
-	 * ¹ØÓÚÎÒÃÇ
+	 * å…³äºŽæˆ‘ä»¬
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping("/aboutMe")
 	public ModelAndView aboutMe()throws Exception{
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("pageTitle", "¹ØÓÚÎÒÃÇ_¼¼Êõ²©¿ÍÍø");
+		mav.addObject("pageTitle", "å…³äºŽæˆ‘ä»¬_æ–°é—»ç½‘");
 		mav.addObject("mainPage", "foreground/system/aboutMe.jsp");
 		mav.setViewName("mainTemp");
 		return mav;

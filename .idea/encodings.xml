@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="GBK">
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/controller/IndexController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dao/DisDAO.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dao/LikeDAO.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dao/NovelDAO.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dao/SimDAO.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dao/SimDAO.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dao/UserDAO.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dbm/ConnectionParam.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dbm/ConnectionPool.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dbm/Dbmanage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/entity/RecipeVo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/entity/UserListVector.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/entity/UserVo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/rec_engin/TFIDFCalculator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/rec_engin/WordSimilarity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/rec_engin/diversity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/rec_engin/handle/mcThread.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/rec_engin/handle/mingcheng.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/rec_engin/handle/mix_rec.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/rec_engin/handle/sort.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/rec_engin/handle/yuanliao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/rec_engin/handle/zuofa.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/rec_engin/map_mix.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/rec_engin/novelty.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/rec_engin/similarity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/rec_engin/split.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/test/dao/LikeDAOTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/test/dao/SimDAOTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/test/rec_engin/TFIDFCalculatorTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/test/rec_engin/diversityTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/test/rec_engin/handle/mcThreadTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/test/rec_engin/handle/mingchengTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/test/rec_engin/handle/mix_recTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/test/rec_engin/handle/yuanliaoTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/test/rec_engin/handle/zuofaTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/test/rec_engin/noveltyTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/test/rec_engin/splitTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/cilin.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/stopword.dic" charset="UTF-8" />
     <file url="PROJECT" charset="GBK" />
   </component>
 </project>

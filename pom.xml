@@ -7,7 +7,56 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>NewsCms Maven Webapp</name>
   <url>http://maven.apache.org</url>
-  <dependencies>
+
+	<properties>
+		<version.commons.io>2.4</version.commons.io>
+		<version.junit>4.12</version.junit>
+		<version.commons.lang3>3.4</version.commons.lang3>
+		<version.log4j>2.6</version.log4j>
+		<version.lombok>1.16.12</version.lombok>
+		<version.guava>20.0</version.guava>
+	</properties>
+	<dependencies>
+
+		<dependency>
+			<groupId>info.debatty</groupId>
+			<artifactId>java-string-similarity</artifactId>
+			<version>0.23</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${version.commons.lang3}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${version.log4j}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${version.log4j}</version>
+		</dependency> <dependency>
+		<groupId>commons-io</groupId>
+		<artifactId>commons-io</artifactId>
+		<version>${version.commons.io}</version>
+	</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${version.junit}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${version.lombok}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${version.guava}</version>
+		</dependency>
     <!-- 添加Servlet支持 -->
   	<dependency>
 		<groupId>javax.servlet</groupId>
@@ -176,7 +225,19 @@
 		<artifactId>ezmorph</artifactId>
 		<version>1.0.6</version>
 	</dependency>
-	
+
+	  <dependency>
+		  <groupId>org.ansj</groupId>
+		  <artifactId>ansj_seg</artifactId>
+		  <version>5.1.6</version>
+	  </dependency>
+
+	  <dependency>
+		  <groupId>com.janeluo</groupId>
+		  <artifactId>ikanalyzer</artifactId>
+		  <version>2012_u6</version>
+	  </dependency>
+
 	<!-- 添加lucene支持 -->
 	<dependency>
 		<groupId>org.apache.lucene</groupId>

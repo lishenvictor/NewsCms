@@ -1,15 +1,15 @@
 package news.ssp.controller.admin;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 
+import news.ssp.cutword.CutWordService;
+import news.ssp.rec_engin.split;
 import news.ssp.util.ResponseUtil;
+import org.ansj.recognition.impl.StopRecognition;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
@@ -42,6 +42,7 @@ public class ArticleAdminController {
 	
 	@Resource
 	private InitComponent initComponent;
+
 	
 	private ArticleIndex articleIndex=new ArticleIndex();
 	
@@ -165,6 +166,47 @@ public class ArticleAdminController {
 		jsonConfig.registerJsonValueProcessor(java.util.Date.class, new DateJsonValueProcessor("yyyy-MM-dd HH:mm:ss"));
 		JSONObject jsonObject=JSONObject.fromObject(article,jsonConfig);
 		ResponseUtil.write(response, jsonObject);
+		return null;
+	}
+
+	/**
+	 * 分词 计算相似度
+	 * @param id
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/cutWord")
+	public String getCutWord(@RequestParam(value="id")Integer id,HttpServletResponse response)throws Exception{
+		Article article=articleService.findById(id);
+		JSONObject result=new JSONObject();
+		StringBuffer cutWordTitle = new StringBuffer();
+		StringBuffer cutWordContent = new StringBuffer();
+
+
+		split sw = new split();
+		Set<String> expectedNature = new HashSet<String>() {{
+			add("n");add("nr");add("ns");add("nz");add("nl");add("ng");add("nw");
+		}};
+
+        /*
+        需要过滤器的话就加
+         */
+		StopRecognition filter = new StopRecognition();//实用化过滤器,添加过滤词
+		filter.insertStopWords("编辑");
+		filter.insertStopWords("作者");
+		cutWordTitle = sw.getFilterWordReturn(article.getTitle(),expectedNature,filter);
+		cutWordContent = sw.getFilterWordReturn(article.getPurecontent(),expectedNature,filter);
+		if(cutWordTitle != null && cutWordContent !=null) {
+				initComponent.refreshSystem(ContextLoader.getCurrentWebApplicationContext().getServletContext());
+				result.put("success", true);
+				result.put("cutWordTitle",cutWordTitle.toString());
+				result.put("cutWordContent",cutWordContent.toString());
+		}else{
+			result.put("success", false);
+
+		}
+		ResponseUtil.write(response, result);
 		return null;
 	}
 }

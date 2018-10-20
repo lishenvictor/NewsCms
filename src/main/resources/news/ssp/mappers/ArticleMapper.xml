@@ -15,6 +15,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="tags" column="tags"/>
 		<result property="orUrl" column="orUrl"/>
 		<result property="state" column="state"/>
+		<result property="source" column="source"/>
+		<result property="purecontent" column="purecontent"/>
 		<association property="arcType" column="typeId" select="news.ssp.dao.ArcTypeDao.findById"></association>
 	</resultMap>
 	

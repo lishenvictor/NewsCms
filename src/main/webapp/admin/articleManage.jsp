@@ -69,6 +69,35 @@
 			}
 		});
 	}
+
+
+    function closeArcTypeDialog(){
+        $("#cutWordTitle").html("");
+        $("#cutWordContent").html("");
+        $("#dlg").dialog("close");
+    }
+
+    function openCutWordDialog(){
+        $("#cutWordTitle").html("");
+        $("#cutWordContent").html("");
+        var selectedRows=$("#dg").datagrid("getSelections");
+        if(selectedRows.length!=1){
+            $.messager.alert("系统提示","请选择一条要分词的数据");
+            return;
+        }
+        var row=selectedRows[0];
+        $("#dlg").dialog("open").dialog("setTitle","新闻分词");
+        $("#cutWordTitle").html("<font id=\"result\" color=\"red\" size=\"10\">正在进行分词......</font>");
+        $.post("${pageContext.request.contextPath}/admin/article/cutWord.do",{'id':row.id},function(result){
+            if(result.success){
+                $("#cutWordTitle").html("<h1>标题分词结果：<br/></h1><h2>"+result.cutWordTitle+"</h2>");
+                $("#cutWordContent").html("<h1>内容分词结果：<br/></h1><h2>"+result.cutWordContent+"</h2>");
+
+            }else{
+                $.messager.alert("系统提示","分词失败！");
+            }
+        },"json");
+    }
 </script>
 </head>
 <body style="margin: 1px">
@@ -95,7 +124,20 @@
 	<div>
 		&nbsp;标题：&nbsp;<input type="text" id="s_title" size="20" onkeydown="if(event.keyCode==13) searchArticle()"/>
 		<a href="javascript:searchArticle()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
+
+		<a href="javascript:openCutWordDialog()" class="easyui-linkbutton" iconCls="icon-search" plain="true">进行分词</a>
+
 	</div>
+</div>
+
+<div id="dlg" class="easyui-dialog" style="width: 800px;height: 500px;padding: 10px 20px" closed="true" buttons="#dlg-buttons">
+	<div id="cutWordTitle"></div>
+	<div id="cutWordContent"></div>
+
+</div>
+
+<div id="dlg-buttons">
+	<a href="javascript:closeArcTypeDialog()" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
 </div>
 
 </body>
