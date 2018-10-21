@@ -5,14 +5,14 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * properties¹¤¾ßÀà
+ * propertieså·¥å…·ç±»
  * @author user
  *
  */
 public class PropertiesUtil {
 
 	/**
-	 * ¸ù¾İkey»ñÈ¡valueÖµ
+	 * æ ¹æ®keyè·å–valueå€¼
 	 * @param key
 	 * @return
 	 */
@@ -28,7 +28,7 @@ public class PropertiesUtil {
 		return prop.getProperty(key);
 	}
 	/**
-	 * ¸ù¾İkey»ñÈ¡valueÖµ
+	 * æ ¹æ®keyè·å–valueå€¼
 	 * @param key
 	 * @return
 	 */

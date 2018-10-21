@@ -1,19 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="GBK">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/controller/ArticleController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/controller/IndexController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/controller/ManagerController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/controller/admin/ArcTypeAdminController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/controller/admin/ArticleAdminController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/controller/admin/CrawlerAdminController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/controller/admin/DateJsonValueProcessor.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/controller/admin/LinkAdminController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/controller/admin/ManagerAdminController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/crawler/NewsCrawler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/crawler/NewsCrawlerService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/cutword/CLibrary.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dao/ArcTypeDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dao/ArticleDao.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dao/DisDAO.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dao/LikeDAO.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dao/ManagerDao.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dao/NovelDAO.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dao/SimDAO.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dao/SimDAO.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dao/UserDAO.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dbm/ConnectionParam.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dbm/ConnectionPool.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/dbm/Dbmanage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/entity/ArcType.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/entity/Article.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/entity/Link.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/entity/Manager.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/entity/PageBean.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/entity/RecipeVo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/entity/UserListVector.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/entity/UserVo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/lucene/ArticleIndex.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/rec_engin/TFIDFCalculator.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/rec_engin/WordSimilarity.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/rec_engin/diversity.java" charset="UTF-8" />
@@ -27,6 +46,21 @@
     <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/rec_engin/novelty.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/rec_engin/similarity.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/rec_engin/split.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/service/ArcTypeService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/service/ArticleService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/service/LinkService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/service/ManagerService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/service/impl/ArcTypeServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/service/impl/ArticleServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/service/impl/InitComponent.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/service/impl/LinkServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/service/impl/ManagerServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/util/DateUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/util/DbUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/util/Md5Util.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/util/PageUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/util/PropertiesUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/news/ssp/util/StringUtil.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/test/dao/LikeDAOTest.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/test/dao/SimDAOTest.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/test/rec_engin/TFIDFCalculatorTest.java" charset="UTF-8" />
@@ -40,6 +74,6 @@
     <file url="file://$PROJECT_DIR$/src/main/java/test/rec_engin/splitTest.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/cilin.txt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/stopword.dic" charset="UTF-8" />
-    <file url="PROJECT" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

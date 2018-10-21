@@ -1,15 +1,15 @@
 package news.ssp.entity;
 
 /**
- * ¹ÜÀíÔ±ÊµÌå
+ * ç®¡ç†å‘˜å®ä½“
  * @author user
  *
  */
 public class Manager {
 
-	private Integer id; // ±àºÅ
-	private String userName; // ÓÃ»§Ãû
-	private String password; // ÃÜÂë
+	private Integer id; // ç¼–å·
+	private String userName; // ç”¨æˆ·å
+	private String password; // å¯†ç 
 	
 	public Integer getId() {
 		return id;

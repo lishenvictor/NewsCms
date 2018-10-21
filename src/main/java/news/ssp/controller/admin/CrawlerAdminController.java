@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * ºóÌ¨¹ÜÀí²©¿ÍÀà±ğControllerÀà
+ * åå°ç®¡ç†åšå®¢ç±»åˆ«Controllerç±»
  * @author user
  *
  */
@@ -39,7 +39,7 @@ public class CrawlerAdminController {
 	private InitComponent initComponent;
 
 	/**
-	 * É¾³ı²©¿ÍÀà±ğĞÅÏ¢
+	 * åˆ é™¤åšå®¢ç±»åˆ«ä¿¡æ¯
 	 * @param type
 	 * @param response
 	 * @return

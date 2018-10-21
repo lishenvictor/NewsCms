@@ -4,14 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 /**
- * Êı¾İ¿â¹¤¾ßÀà
+ * æ•°æ®åº“å·¥å…·ç±»
  * @author user
  *
  */
 public class DbUtil {
 
 	/**
-	 * »ñÈ¡Á¬½Ó
+	 * è·å–è¿æ¥
 	 * @return
 	 * @throws Exception
 	 */
@@ -22,7 +22,7 @@ public class DbUtil {
 	}
 	
 	/**
-	 * ¹Ø±ÕÁ¬½Ó
+	 * å…³é—­è¿æ¥
 	 * @param con
 	 * @throws Exception
 	 */
@@ -36,11 +36,11 @@ public class DbUtil {
 		DbUtil dbUtil=new DbUtil();
 		try {
 			dbUtil.getCon();
-			System.out.println("Êı¾İ¿âÁ¬½Ó³É¹¦");
+			System.out.println("æ•°æ®åº“è¿æ¥æˆåŠŸ");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("Êı¾İ¿âÁ¬½ÓÊ§°Ü");
+			System.out.println("æ•°æ®åº“è¿æ¥å¤±è´¥");
 		}
 	}
 }

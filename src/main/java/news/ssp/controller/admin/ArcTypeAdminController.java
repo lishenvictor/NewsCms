@@ -22,7 +22,7 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 /**
- * ºóÌ¨¹ÜÀí²©¿ÍÀà±ğControllerÀà
+ * åå°ç®¡ç†åšå®¢ç±»åˆ«Controllerç±»
  * @author user
  *
  */
@@ -40,7 +40,7 @@ public class ArcTypeAdminController {
 	private InitComponent initComponent;
 	
 	/**
-	 * ·ÖÒ³²éÑ¯²©¿ÍÀà±ğĞÅÏ¢
+	 * åˆ†é¡µæŸ¥è¯¢åšå®¢ç±»åˆ«ä¿¡æ¯
 	 * @param page
 	 * @param rows
 	 * @param response
@@ -64,7 +64,7 @@ public class ArcTypeAdminController {
 	}
 	
 	/**
-	 * Ìí¼Ó»òÕßĞŞ¸Ä²©¿ÍÀà±ğĞÅÏ¢
+	 * æ·»åŠ æˆ–è€…ä¿®æ”¹åšå®¢ç±»åˆ«ä¿¡æ¯
 	 * @param arcType
 	 * @param response
 	 * @return
@@ -72,7 +72,7 @@ public class ArcTypeAdminController {
 	 */
 	@RequestMapping("/save")
 	public String save(ArcType arcType,HttpServletResponse response)throws Exception{
-		int resultTotal=0; // ²Ù×÷µÄ¼ÇÂ¼ÌõÊı
+		int resultTotal=0; // æ“ä½œçš„è®°å½•æ¡æ•°
 		if(arcType.getId()==null){
 			resultTotal=arcTypeService.add(arcType);
 		}else{
@@ -91,7 +91,7 @@ public class ArcTypeAdminController {
 	
 
 	/**
-	 * É¾³ı²©¿ÍÀà±ğĞÅÏ¢
+	 * åˆ é™¤åšå®¢ç±»åˆ«ä¿¡æ¯
 	 * @param ids
 	 * @param response
 	 * @return
@@ -103,7 +103,7 @@ public class ArcTypeAdminController {
 		JSONObject result=new JSONObject();
 		for(int i=0;i<idsStr.length;i++){
 			if(articleService.getNumByTypeId(Integer.parseInt(idsStr[i]))>0){
-				result.put("exist", "ĞÂÎÅÀà±ğÏÂÓĞĞÂÎÅ£¬²»ÄÜÉ¾³ı");
+				result.put("exist", "æ–°é—»ç±»åˆ«ä¸‹æœ‰æ–°é—»ï¼Œä¸èƒ½åˆ é™¤");
 			}else{
 				arcTypeService.delete(Integer.parseInt(idsStr[i]));				
 			}

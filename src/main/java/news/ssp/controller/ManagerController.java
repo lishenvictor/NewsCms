@@ -16,7 +16,7 @@ import news.ssp.util.Md5Util;
 import net.sf.json.JSONObject;
 
 /**
- * ¹ÜÀíÔ±ControllerÀà
+ * ç®¡ç†å‘˜Controllerç±»
  * @author user
  *
  */
@@ -28,7 +28,7 @@ public class ManagerController {
 	private ManagerService managerService;
 	
 	/**
-	 * ÓÃ»§µÇÂ¼
+	 * ç”¨æˆ·ç™»å½•
 	 * @param manager
 	 * @param response
 	 * @return
@@ -45,7 +45,7 @@ public class ManagerController {
 		}catch(Exception e){
 			e.printStackTrace();
 			result.put("success", false);
-			result.put("errorInfo", "ÓÃ»§Ãû»òÕßÃÜÂë´íÎó£¡");
+			result.put("errorInfo", "ç”¨æˆ·åæˆ–è€…å¯†ç é”™è¯¯ï¼");
 		}
 		ResponseUtil.write(response, result);
 		return null;

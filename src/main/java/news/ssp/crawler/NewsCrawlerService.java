@@ -42,12 +42,12 @@ public class NewsCrawlerService {
 
 	private static Connection con = null;
 
-	private static CacheManager manager = null; // cache¹ÜÀíÆ÷
-	private static Cache cache = null; // cache»º´æ¶ÔÏó
+	private static CacheManager manager = null; // cacheç®¡ç†å™¨
+	private static Cache cache = null; // cacheç¼“å­˜å¯¹è±¡
 
 	private int count = 0;
 	/**
-	 * ½âÎöÖ÷Ò³
+	 * è§£æä¸»é¡µ
 	 */
 	private void parseHomePage(String type) {
 //		while (true) {
@@ -58,7 +58,7 @@ public class NewsCrawlerService {
 			}else{
 				URL = PropertiesUtil.getValue2("souhuUrl");
 			}
-			logger.info("¿ªÊ¼ÅÀÈ¡" + URL + "ÍøÒ³");
+			logger.info("å¼€å§‹çˆ¬å–" + URL + "ç½‘é¡µ");
 			System.setProperty(CacheManager.ENABLE_SHUTDOWN_HOOK_PROPERTY, "true");
 			CacheManager cm = new CacheManager(PropertiesUtil.getValue("cacheFilePath"));
 			manager = CacheManager.getCacheManager(cm.getName());
@@ -67,10 +67,10 @@ public class NewsCrawlerService {
 			}
 			cache = manager.getCache("news");
 			cache.flush();
-			CloseableHttpClient httpClient = HttpClients.createDefault(); // »ñÈ¡HttpClientÊµÀı
-			HttpGet httpget = new HttpGet(URL); // ´´½¨httpgetÊµÀı
-			RequestConfig config = RequestConfig.custom().setSocketTimeout(100000) // ÉèÖÃ¶ÁÈ¡³¬Ê±Ê±¼ä
-					.setConnectTimeout(5000) // ÉèÖÃÁ¬½Ó³¬Ê±Ê±¼ä
+			CloseableHttpClient httpClient = HttpClients.createDefault(); // è·å–HttpClientå®ä¾‹
+			HttpGet httpget = new HttpGet(URL); // åˆ›å»ºhttpgetå®ä¾‹
+			RequestConfig config = RequestConfig.custom().setSocketTimeout(100000) // è®¾ç½®è¯»å–è¶…æ—¶æ—¶é—´
+					.setConnectTimeout(5000) // è®¾ç½®è¿æ¥è¶…æ—¶æ—¶é—´
 					.build();
 			httpget.setConfig(config);
 			CloseableHttpResponse response = null;
@@ -82,8 +82,8 @@ public class NewsCrawlerService {
 				logger.error(URL + "-IOException", e);
 			}
 			if (response != null) {
-				HttpEntity entity = response.getEntity(); // »ñÈ¡·µ»ØÊµÌå
-				// ÅĞ¶Ï·µ»Ø×´Ì¬ÊÇ·ñÎª200
+				HttpEntity entity = response.getEntity(); // è·å–è¿”å›å®ä½“
+				// åˆ¤æ–­è¿”å›çŠ¶æ€æ˜¯å¦ä¸º200
 				if (response.getStatusLine().getStatusCode() == 200) {
 					String webPageContent = null;
 					try {
@@ -95,10 +95,10 @@ public class NewsCrawlerService {
 						logger.error(URL + "-IOException", e);
 					}
 				} else {
-					logger.error(URL + "-·µ»Ø×´Ì¬·Ç200");
+					logger.error(URL + "-è¿”å›çŠ¶æ€é200");
 				}
 			} else {
-				logger.error(URL + "-Á¬½Ó³¬Ê±");
+				logger.error(URL + "-è¿æ¥è¶…æ—¶");
 			}
 			try {
 				if (response != null) {
@@ -111,20 +111,20 @@ public class NewsCrawlerService {
 				logger.error(URL + "Exception", e);
 			}
 			if (cache.getStatus() == Status.STATUS_ALIVE) {
-				cache.flush(); // °Ñ»º´æĞ´ÈëÎÄ¼ş
+				cache.flush(); // æŠŠç¼“å­˜å†™å…¥æ–‡ä»¶
 			}
 			manager.shutdown();
 //			try {
-//				Thread.sleep(1 * 60 * 1000); // Ã¿¸ô10·ÖÖÓ×¥È¡Ò»´ÎÍøÒ³Êı¾İ
+//				Thread.sleep(1 * 60 * 1000); // æ¯éš”10åˆ†é’ŸæŠ“å–ä¸€æ¬¡ç½‘é¡µæ•°æ®
 //			} catch (InterruptedException e) {
 //				logger.error("InterruptedException", e);
 //			}
-			logger.info("½áÊøÅÀÈ¡" + URL + "ÍøÒ³");
+			logger.info("ç»“æŸçˆ¬å–" + URL + "ç½‘é¡µ");
 		}
 //	}
 
 	/**
-	 * ½âÎöÊ×Ò³ÄÚÈİ ÌáÈ¡ĞÂÎÅlink
+	 * è§£æé¦–é¡µå†…å®¹ æå–æ–°é—»link
 	 * 
 	 * @param webPageContent
 	 */
@@ -154,8 +154,8 @@ public class NewsCrawlerService {
 			}
 			System.out.println(url);
 			cache.flush();
-			if (cache.get(url) != null) { // Èç¹û»º´æÖĞ´æÔÚ¾Í²»²åÈë
-				logger.info(url + "-»º´æÖĞ´æÔÚ");
+			if (cache.get(url) != null) { // å¦‚æœç¼“å­˜ä¸­å­˜åœ¨å°±ä¸æ’å…¥
+				logger.info(url + "-ç¼“å­˜ä¸­å­˜åœ¨");
 				continue;
 			}
 			parseBlogLink(url,type);
@@ -164,16 +164,16 @@ public class NewsCrawlerService {
 	}
 
 	/**
-	 * ½âÎöĞÂÎÅÁ´½ÓµØÖ· »ñÈ¡ĞÂÎÅÄÚÈİ
+	 * è§£ææ–°é—»é“¾æ¥åœ°å€ è·å–æ–°é—»å†…å®¹
 	 * 
 	 * @param link
 	 */
 	private void parseBlogLink(String link,String type) {
-		logger.info("¿ªÊ¼ÅÀÈ¡" + link + "ÍøÒ³");
-		CloseableHttpClient httpClient = HttpClients.createDefault(); // »ñÈ¡HttpClientÊµÀı
-		HttpGet httpget = new HttpGet(link); // ´´½¨httpgetÊµÀı
-		RequestConfig config = RequestConfig.custom().setSocketTimeout(100000) // ÉèÖÃ¶ÁÈ¡³¬Ê±Ê±¼ä
-				.setConnectTimeout(5000) // ÉèÖÃÁ¬½Ó³¬Ê±Ê±¼ä
+		logger.info("å¼€å§‹çˆ¬å–" + link + "ç½‘é¡µ");
+		CloseableHttpClient httpClient = HttpClients.createDefault(); // è·å–HttpClientå®ä¾‹
+		HttpGet httpget = new HttpGet(link); // åˆ›å»ºhttpgetå®ä¾‹
+		RequestConfig config = RequestConfig.custom().setSocketTimeout(100000) // è®¾ç½®è¯»å–è¶…æ—¶æ—¶é—´
+				.setConnectTimeout(5000) // è®¾ç½®è¿æ¥è¶…æ—¶æ—¶é—´
 				.build();
 		httpget.setConfig(config);
 		CloseableHttpResponse response = null;
@@ -185,8 +185,8 @@ public class NewsCrawlerService {
 			logger.error(URL + "-IOException", e);
 		}
 		if (response != null) {
-			HttpEntity entity = response.getEntity(); // »ñÈ¡·µ»ØÊµÌå
-			// ÅĞ¶Ï·µ»Ø×´Ì¬ÊÇ·ñÎª200
+			HttpEntity entity = response.getEntity(); // è·å–è¿”å›å®ä½“
+			// åˆ¤æ–­è¿”å›çŠ¶æ€æ˜¯å¦ä¸º200
 			if (response.getStatusLine().getStatusCode() == 200) {
 				String blogContent = null;
 				try {
@@ -198,10 +198,10 @@ public class NewsCrawlerService {
 					logger.error(URL + "-IOException", e);
 				}
 			} else {
-				logger.error(URL + "-·µ»Ø×´Ì¬·Ç200");
+				logger.error(URL + "-è¿”å›çŠ¶æ€é200");
 			}
 		} else {
-			logger.error(URL + "-Á¬½Ó³¬Ê±");
+			logger.error(URL + "-è¿æ¥è¶…æ—¶");
 		}
 		try {
 			if (response != null) {
@@ -213,11 +213,11 @@ public class NewsCrawlerService {
 		} catch (Exception e) {
 			logger.error(URL + "Exception", e);
 		}
-		logger.info("½áÊøÅÀÈ¡" + link + "ÍøÒ³");
+		logger.info("ç»“æŸçˆ¬å–" + link + "ç½‘é¡µ");
 	}
 
 	/**
-	 * ½âÎöĞÂÎÅÄÚÈİ£¬ÌáÈ¡ÓĞĞ§ĞÅÏ¢
+	 * è§£ææ–°é—»å†…å®¹ï¼Œæå–æœ‰æ•ˆä¿¡æ¯
 	 * 
 	 * @param blogContent
 	 * @param link
@@ -229,33 +229,33 @@ public class NewsCrawlerService {
 		Document doc = Jsoup.parse(blogContent);
 		Elements titleElements = null;
 		if("1".equals(type)) {
-			titleElements = doc.select(PropertiesUtil.getValue2("wangyititle")); // »ñÈ¡ĞÂÎÅ±êÌâ
+			titleElements = doc.select(PropertiesUtil.getValue2("wangyititle")); // è·å–æ–°é—»æ ‡é¢˜
 		}else if("2".equals(type)){
-			titleElements = doc.select(PropertiesUtil.getValue2("tengxuntitle")); // »ñÈ¡ĞÂÎÅ±êÌâ
+			titleElements = doc.select(PropertiesUtil.getValue2("tengxuntitle")); // è·å–æ–°é—»æ ‡é¢˜
 		}else{
-			titleElements = doc.select(PropertiesUtil.getValue2("souhutitle")); // »ñÈ¡ĞÂÎÅ±êÌâ
+			titleElements = doc.select(PropertiesUtil.getValue2("souhutitle")); // è·å–æ–°é—»æ ‡é¢˜
 		}
 		if (titleElements.size() == 0) {
-			logger.error(link + "-Î´»ñÈ¡µ½ĞÂÎÅ±êÌâ");
+			logger.error(link + "-æœªè·å–åˆ°æ–°é—»æ ‡é¢˜");
 			return;
 		}
 		String title = titleElements.get(0).text();
-		System.out.println("ĞÂÎÅ±êÌâ£º" + title);
+		System.out.println("æ–°é—»æ ‡é¢˜ï¼š" + title);
 		Elements contentElements = null;
 		if("1".equals(type)) {
-			contentElements = doc.select(PropertiesUtil.getValue2("wangyicontent")); // »ñÈ¡ĞÂÎÅÄÚÈİ
+			contentElements = doc.select(PropertiesUtil.getValue2("wangyicontent")); // è·å–æ–°é—»å†…å®¹
 		}else if("2".equals(type)){
-			contentElements = doc.select(PropertiesUtil.getValue2("tengxuncontent")); // »ñÈ¡ĞÂÎÅÄÚÈİ
+			contentElements = doc.select(PropertiesUtil.getValue2("tengxuncontent")); // è·å–æ–°é—»å†…å®¹
 		}else{
-			contentElements = doc.select(PropertiesUtil.getValue2("souhucontent")); // »ñÈ¡ĞÂÎÅÄÚÈİ
+			contentElements = doc.select(PropertiesUtil.getValue2("souhucontent")); // è·å–æ–°é—»å†…å®¹
 		}
-		Elements imgElements = contentElements.select("img"); // »ñÈ¡ËùÓĞÍ¼Æ¬ÔªËØ
+		Elements imgElements = contentElements.select("img"); // è·å–æ‰€æœ‰å›¾ç‰‡å…ƒç´ 
 		if (contentElements.size() == 0) {
-			logger.error(link + "-Î´»ñÈ¡µ½ĞÂÎÅÄÚÈİ");
+			logger.error(link + "-æœªè·å–åˆ°æ–°é—»å†…å®¹");
 			return;
 		}
 		String content = contentElements.get(0).html();
-		System.out.println("ĞÂÎÅÄÚÈİ£º" + content);
+		System.out.println("æ–°é—»å†…å®¹ï¼š" + content);
 
 //		List<String> imgUrlList = new LinkedList<String>();
 //		for (int i = 0; i < imgElements.size(); i++) {
@@ -293,7 +293,7 @@ public class NewsCrawlerService {
 
 
 
-		// ²åÈëÊı¾İ¿â
+		// æ’å…¥æ•°æ®åº“
 		String sql = "insert into t_article values(null,?,?,null,now(),0,0,null,?,0,null,?,?)";
 		try {
 			String source = "";
@@ -311,13 +311,13 @@ public class NewsCrawlerService {
 			pstmt.setString(4,source);
 			pstmt.setString(5,getTextFromHtml(content));
 			if (pstmt.executeUpdate() == 1) {
-				logger.info(link + "-³É¹¦²åÈëÊı¾İ¿â");
+				logger.info(link + "-æˆåŠŸæ’å…¥æ•°æ®åº“");
 				cache.put(new net.sf.ehcache.Element(link, link));
 				cache.flush();
-				logger.info(link + "-ÒÑ¼ÓÈë»º´æ");
+				logger.info(link + "-å·²åŠ å…¥ç¼“å­˜");
 				count++;
 			} else {
-				logger.info(link + "-²åÈëÊı¾İ¿âÊ§°Ü");
+				logger.info(link + "-æ’å…¥æ•°æ®åº“å¤±è´¥");
 			}
 		} catch (SQLException e) {
 			logger.error("SQLException", e);
@@ -325,7 +325,7 @@ public class NewsCrawlerService {
 	}
 
 //	/**
-//	 * °ÑÔ­À´µÄÍøÒ³Í¼Æ¬µØÖ·»»³É±¾µØĞÂµÄ
+//	 * æŠŠåŸæ¥çš„ç½‘é¡µå›¾ç‰‡åœ°å€æ¢æˆæœ¬åœ°æ–°çš„
 //	 *
 //	 * @param content
 //	 * @param replaceImgMap
@@ -340,7 +340,7 @@ public class NewsCrawlerService {
 //	}
 
 //	/**
-//	 * ÏÂÔØÍ¼Æ¬µ½±¾µØ
+//	 * ä¸‹è½½å›¾ç‰‡åˆ°æœ¬åœ°
 //	 *
 //	 * @param imgUrlList
 //	 * @return
@@ -348,10 +348,10 @@ public class NewsCrawlerService {
 //	private static Map<String, String> downLoadImages(List<String> imgUrlList) {
 //		Map<String, String> replaceImgMap = new HashMap<String, String>();
 //
-//		RequestConfig config = RequestConfig.custom().setSocketTimeout(10000) // ÉèÖÃ¶ÁÈ¡³¬Ê±Ê±¼ä
-//				.setConnectTimeout(5000) // ÉèÖÃÁ¬½Ó³¬Ê±Ê±¼ä
+//		RequestConfig config = RequestConfig.custom().setSocketTimeout(10000) // è®¾ç½®è¯»å–è¶…æ—¶æ—¶é—´
+//				.setConnectTimeout(5000) // è®¾ç½®è¿æ¥è¶…æ—¶æ—¶é—´
 //				.build();
-//		CloseableHttpClient httpClient = HttpClients.createDefault(); // »ñÈ¡HttpClientÊµÀı
+//		CloseableHttpClient httpClient = HttpClients.createDefault(); // è·å–HttpClientå®ä¾‹
 //		for (int i = 0; i < imgUrlList.size(); i++) {
 //			try {
 //				Thread.sleep(1000);
@@ -361,12 +361,12 @@ public class NewsCrawlerService {
 //			}
 //
 //			String url = imgUrlList.get(i);
-//			logger.info("¿ªÊ¼ÅÀÈ¡" + url + "Í¼Æ¬");
+//			logger.info("å¼€å§‹çˆ¬å–" + url + "å›¾ç‰‡");
 //
 //			CloseableHttpResponse response = null;
 //
 //			try {
-//				HttpGet httpget = new HttpGet(url); // ´´½¨httpgetÊµÀı
+//				HttpGet httpget = new HttpGet(url); // åˆ›å»ºhttpgetå®ä¾‹
 //				httpget.setConfig(config);
 //				response = httpClient.execute(httpget);
 //			} catch (ClientProtocolException e) {
@@ -375,8 +375,8 @@ public class NewsCrawlerService {
 //				logger.error(url + "-IOException");
 //			}
 //			if (response != null) {
-//				HttpEntity entity = response.getEntity(); // »ñÈ¡·µ»ØÊµÌå
-//				// ÅĞ¶Ï·µ»Ø×´Ì¬ÊÇ·ñÎª200
+//				HttpEntity entity = response.getEntity(); // è·å–è¿”å›å®ä½“
+//				// åˆ¤æ–­è¿”å›çŠ¶æ€æ˜¯å¦ä¸º200
 //				if (response.getStatusLine().getStatusCode() == 200) {
 //					try {
 //						InputStream inputStream = entity.getContent();
@@ -400,10 +400,10 @@ public class NewsCrawlerService {
 //						e.printStackTrace();
 //					}
 //				} else {
-//					logger.error("·µ»Ø×´Ì¬·Ç200");
+//					logger.error("è¿”å›çŠ¶æ€é200");
 //				}
 //			} else {
-//				logger.error("Á¬½Ó³¬Ê±");
+//				logger.error("è¿æ¥è¶…æ—¶");
 //			}
 //			try {
 //				if (response != null) {
@@ -412,7 +412,7 @@ public class NewsCrawlerService {
 //			} catch (Exception e) {
 //				logger.error("Exception", e);
 //			}
-//			logger.info("½áÊøÅÀÈ¡" + url + "Í¼Æ¬");
+//			logger.info("ç»“æŸçˆ¬å–" + url + "å›¾ç‰‡");
 //		}
 //
 //		return replaceImgMap;
@@ -424,7 +424,7 @@ public class NewsCrawlerService {
 		try {
 			con = dbUtil.getCon();
 		} catch (Exception e) {
-			logger.error("´´½¨Êı¾İ¿âÁ¬½ÓÊ§°Ü", e);
+			logger.error("åˆ›å»ºæ•°æ®åº“è¿æ¥å¤±è´¥", e);
 			map.put("result",false);
 			return map;
 		}
@@ -436,27 +436,27 @@ public class NewsCrawlerService {
 
 
     public String delHtmlTags(String htmlStr) {
-        //¶¨ÒåscriptµÄÕıÔò±í´ïÊ½£¬È¥³ıjs¿ÉÒÔ·ÀÖ¹×¢Èë
+        //å®šä¹‰scriptçš„æ­£åˆ™è¡¨è¾¾å¼ï¼Œå»é™¤jså¯ä»¥é˜²æ­¢æ³¨å…¥
         String scriptRegex="<script[^>]*?>[\\s\\S]*?<\\/script>";
-        //¶¨ÒåstyleµÄÕıÔò±í´ïÊ½£¬È¥³ıstyleÑùÊ½£¬·ÀÖ¹css´úÂë¹ı¶àÊ±Ö»½ØÈ¡µ½cssÑùÊ½´úÂë
+        //å®šä¹‰styleçš„æ­£åˆ™è¡¨è¾¾å¼ï¼Œå»é™¤styleæ ·å¼ï¼Œé˜²æ­¢cssä»£ç è¿‡å¤šæ—¶åªæˆªå–åˆ°cssæ ·å¼ä»£ç 
         String styleRegex="<style[^>]*?>[\\s\\S]*?<\\/style>";
-        //¶¨ÒåHTML±êÇ©µÄÕıÔò±í´ïÊ½£¬È¥³ı±êÇ©£¬Ö»ÌáÈ¡ÎÄ×ÖÄÚÈİ
+        //å®šä¹‰HTMLæ ‡ç­¾çš„æ­£åˆ™è¡¨è¾¾å¼ï¼Œå»é™¤æ ‡ç­¾ï¼Œåªæå–æ–‡å­—å†…å®¹
         String htmlRegex="<[^>]+>";
-        //¶¨Òå¿Õ¸ñ,»Ø³µ,»»ĞĞ·û,ÖÆ±í·û
+        //å®šä¹‰ç©ºæ ¼,å›è½¦,æ¢è¡Œç¬¦,åˆ¶è¡¨ç¬¦
         String spaceRegex = "\\s*|\t|\r|\n";
 
-        // ¹ıÂËscript±êÇ©
+        // è¿‡æ»¤scriptæ ‡ç­¾
         htmlStr = htmlStr.replaceAll(scriptRegex, "");
-        // ¹ıÂËstyle±êÇ©
+        // è¿‡æ»¤styleæ ‡ç­¾
         htmlStr = htmlStr.replaceAll(styleRegex, "");
-        // ¹ıÂËhtml±êÇ©
+        // è¿‡æ»¤htmlæ ‡ç­¾
         htmlStr = htmlStr.replaceAll(htmlRegex, "");
-        // ¹ıÂË¿Õ¸ñµÈ
+        // è¿‡æ»¤ç©ºæ ¼ç­‰
         htmlStr = htmlStr.replaceAll(spaceRegex, "");
-        return htmlStr.trim(); // ·µ»ØÎÄ±¾×Ö·û´®
+        return htmlStr.trim(); // è¿”å›æ–‡æœ¬å­—ç¬¦ä¸²
     }
     /**
-     * »ñÈ¡HTML´úÂëÀïµÄÄÚÈİ
+     * è·å–HTMLä»£ç é‡Œçš„å†…å®¹
      * @param htmlStr
      * @return
      */
@@ -466,11 +466,11 @@ public class NewsCrawlerService {
 				htmlStr = htmlStr.substring(htmlStr.indexOf("</p>") + 6);
 			}
 		}
-        //È¥³ıhtml±êÇ©
+        //å»é™¤htmlæ ‡ç­¾
         htmlStr = delHtmlTags(htmlStr);
-        //È¥³ı¿Õ¸ñ" "
+        //å»é™¤ç©ºæ ¼" "
         htmlStr = htmlStr.replaceAll(" ","");
-		htmlStr = htmlStr.replaceAll("·µ»ØËÑºü£¬²é¿´¸ü¶àÔğÈÎ±à¼­£º","");
+		htmlStr = htmlStr.replaceAll("è¿”å›æœç‹ï¼ŒæŸ¥çœ‹æ›´å¤šè´£ä»»ç¼–è¾‘ï¼š","");
 		return htmlStr;
     }
 }

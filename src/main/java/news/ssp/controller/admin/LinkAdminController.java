@@ -21,7 +21,7 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 /**
- * ºóÌ¨¹ÜÀíÓÑÇéÁ´½ÓControllerÀà
+ * åå°ç®¡ç†å‹æƒ…é“¾æ¥Controllerç±»
  * @author user
  *
  */
@@ -36,7 +36,7 @@ public class LinkAdminController {
 	private InitComponent initComponent;
 	
 	/**
-	 * ·ÖÒ³²éÑ¯ÓÑÇéÁ´½ÓĞÅÏ¢
+	 * åˆ†é¡µæŸ¥è¯¢å‹æƒ…é“¾æ¥ä¿¡æ¯
 	 * @param page
 	 * @param rows
 	 * @param response
@@ -60,7 +60,7 @@ public class LinkAdminController {
 	}
 	
 	/**
-	 * Ìí¼Ó»òÕßĞŞ¸ÄÓÑÇéÁ´½ÓĞÅÏ¢
+	 * æ·»åŠ æˆ–è€…ä¿®æ”¹å‹æƒ…é“¾æ¥ä¿¡æ¯
 	 * @param link
 	 * @param response
 	 * @return
@@ -68,7 +68,7 @@ public class LinkAdminController {
 	 */
 	@RequestMapping("/save")
 	public String save(Link link,HttpServletResponse response)throws Exception{
-		int resultTotal=0; // ²Ù×÷µÄ¼ÇÂ¼ÌõÊı
+		int resultTotal=0; // æ“ä½œçš„è®°å½•æ¡æ•°
 		if(link.getId()==null){
 			resultTotal=linkService.add(link);
 		}else{
@@ -86,7 +86,7 @@ public class LinkAdminController {
 	}
 	
 	/**
-	 * É¾³ıÓÑÇéÁ´½ÓĞÅÏ¢
+	 * åˆ é™¤å‹æƒ…é“¾æ¥ä¿¡æ¯
 	 * @param ids
 	 * @param response
 	 * @return

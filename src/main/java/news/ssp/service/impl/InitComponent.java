@@ -19,7 +19,7 @@ import news.ssp.service.ArticleService;
 import news.ssp.service.LinkService;
 
 /**
- * ³õÊ¼»¯×é¼ş
+ * åˆå§‹åŒ–ç»„ä»¶
  * @author user
  *
  */
@@ -29,8 +29,8 @@ public class InitComponent implements ServletContextListener,ApplicationContextA
 	private static ApplicationContext applicationContext;
 
 	/**
-	 * Ë¢ĞÂÏµÍ³»º´æ
-	 * @param applicationContext
+	 * åˆ·æ–°ç³»ç»Ÿç¼“å­˜
+	 * @param application
 	 */
 	public void refreshSystem(ServletContext application){
 		ArcTypeService arcTypeService=(ArcTypeService) applicationContext.getBean("arcTypeService");

@@ -4,14 +4,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * ÈÕÆÚ¹¤¾ßÀà
+ * æ—¥æœŸå·¥å…·ç±»
  * @author Administrator
  *
  */
 public class DateUtil {
 
 	/**
-	 * »ñÈ¡µ±Ç°ÄêÔÂÈÕÂ·¾¶
+	 * è·å–å½“å‰å¹´æœˆæ—¥è·¯å¾„
 	 * @return
 	 * @throws Exception
 	 */
@@ -22,7 +22,7 @@ public class DateUtil {
 	}
 
 	/**
-	 * ÈÕÆÚ¶ÔÏó×ª×Ö·û´®
+	 * æ—¥æœŸå¯¹è±¡è½¬å­—ç¬¦ä¸²
 	 * @param date
 	 * @param format
 	 * @return
@@ -37,7 +37,7 @@ public class DateUtil {
 	}
 	
 	/**
-	 * ×Ö·û´®×ªÈÕÆÚ¶ÔÏó
+	 * å­—ç¬¦ä¸²è½¬æ—¥æœŸå¯¹è±¡
 	 * @param str
 	 * @param format
 	 * @return

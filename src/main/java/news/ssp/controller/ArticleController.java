@@ -18,7 +18,7 @@ import news.ssp.service.ArticleService;
 import news.ssp.util.StringUtil;
 
 /**
- * ĞÂÎÅControllerÀà
+ * æ–°é—»Controllerç±»
  * @author user
  *
  */
@@ -35,7 +35,7 @@ public class ArticleController {
 		ModelAndView mav=new ModelAndView();
 		Article article=articleService.findById(id);
 		article.setClickHit(article.getClickHit()+1);
-		articleService.update(article); // ĞÂÎÅµã»÷´ÎÊı+1
+		articleService.update(article); // æ–°é—»ç‚¹å‡»æ¬¡æ•°+1
 		String tags=article.getTags();
 		if(StringUtil.isNotEmpty(tags)){
 			String arr[]=tags.split(" ");
@@ -44,7 +44,7 @@ public class ArticleController {
 			mav.addObject("tags", tags);
 		}
 		mav.addObject("article", article);
-		mav.addObject("pageTitle",article.getTitle()+"_ĞÂÎÅÍø");
+		mav.addObject("pageTitle",article.getTitle()+"_æ–°é—»ç½‘");
 		mav.addObject("pageCode", this.getUpAndDownPageCode(articleService.getLastArticle(id), articleService.getNextArticle(id), request.getServletContext().getContextPath()));
 		mav.addObject("mainPage", "foreground/article/view.jsp");
 		mav.setViewName("mainTemp");
@@ -53,7 +53,7 @@ public class ArticleController {
 	
 	
 	/**
-	 * »ñÈ¡ÉÏÒ»ÆªºÍÏÂÒ»Æª´úÂë
+	 * è·å–ä¸Šä¸€ç¯‡å’Œä¸‹ä¸€ç¯‡ä»£ç 
 	 * @param lastArticle
 	 * @param netArticle
 	 * @param projectContext
@@ -62,19 +62,19 @@ public class ArticleController {
 	public String getUpAndDownPageCode(Article lastArticle,Article netArticle,String projectContext){
 		StringBuffer pageCode=new StringBuffer();
 		if(lastArticle==null || lastArticle.getId()==null){
-			pageCode.append("<p>ÉÏÒ»Æª£ºÃ»ÓĞÁË</p>");
+			pageCode.append("<p>ä¸Šä¸€ç¯‡ï¼šæ²¡æœ‰äº†</p>");
 		}else{
-			pageCode.append("<p>ÉÏÒ»Æª£º<a href='"+projectContext+"/article/"+lastArticle.getId()+".html'>"+lastArticle.getTitle()+"</a></p>");
+			pageCode.append("<p>ä¸Šä¸€ç¯‡ï¼š<a href='"+projectContext+"/article/"+lastArticle.getId()+".html'>"+lastArticle.getTitle()+"</a></p>");
 		}
 		if(netArticle==null || netArticle.getId()==null){
-			pageCode.append("<p>ÏÂÒ»Æª£ºÃ»ÓĞÁË</p>");
+			pageCode.append("<p>ä¸‹ä¸€ç¯‡ï¼šæ²¡æœ‰äº†</p>");
 		}else{
-			pageCode.append("<p>ÏÂÒ»Æª£º<a href='"+projectContext+"/article/"+netArticle.getId()+".html'>"+netArticle.getTitle()+"</a></p>");
+			pageCode.append("<p>ä¸‹ä¸€ç¯‡ï¼š<a href='"+projectContext+"/article/"+netArticle.getId()+".html'>"+netArticle.getTitle()+"</a></p>");
 		}
 		return pageCode.toString();
 	}
 	/**
-	 * ¸ù¾İ¹Ø¼ü×Ö²éÑ¯Ïà¹Ø²©¿ÍĞÅÏ¢
+	 * æ ¹æ®å…³é”®å­—æŸ¥è¯¢ç›¸å…³åšå®¢ä¿¡æ¯
 	 * @param q
 	 * @return
 	 * @throws Exception
@@ -86,7 +86,7 @@ public class ArticleController {
 			page="1";
 		}
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("pageTitle", "ËÑË÷¹Ø¼ü×Ö'"+q+"'½á¹ûÒ³Ãæ_ĞÂÎÅÍø");
+		mav.addObject("pageTitle", "æœç´¢å…³é”®å­—'"+q+"'ç»“æœé¡µé¢_æ–°é—»ç½‘");
 		mav.addObject("mainPage", "foreground/article/result.jsp");
 		List<Article> articleList=articleIndex.searchArticle(q);
 		Integer toIndex=articleList.size()>=Integer.parseInt(page)*pageSize?Integer.parseInt(page)*pageSize:articleList.size();
@@ -98,7 +98,7 @@ public class ArticleController {
 		return mav;
 	}
 	/**
-	 * »ñÈ¡ÉÏÒ»Ò³£¬ÏÂÒ»Ò³´úÂë 
+	 * è·å–ä¸Šä¸€é¡µï¼Œä¸‹ä¸€é¡µä»£ç  
 	 * @param page
 	 * @param totalNum
 	 * @param q
@@ -115,14 +115,14 @@ public class ArticleController {
 			pageCode.append("<nav>");
 			pageCode.append("<ul class='pager'>");
 			if(page>1){
-				pageCode.append("<li><a href='"+projectContext+"/article/q.html?page="+(page-1)+"&q="+q+"'>ÉÏÒ»Ò³</a></li>");
+				pageCode.append("<li><a href='"+projectContext+"/article/q.html?page="+(page-1)+"&q="+q+"'>ä¸Šä¸€é¡µ</a></li>");
 			}else{
-				pageCode.append("<li class='disabled'><a href='#'>ÉÏÒ»Ò³</a></li>");
+				pageCode.append("<li class='disabled'><a href='#'>ä¸Šä¸€é¡µ</a></li>");
 			}
 			if(page<totalPage){
-				pageCode.append("<li><a href='"+projectContext+"/article/q.html?page="+(page+1)+"&q="+q+"'>ÏÂÒ»Ò³</a></li>");
+				pageCode.append("<li><a href='"+projectContext+"/article/q.html?page="+(page+1)+"&q="+q+"'>ä¸‹ä¸€é¡µ</a></li>");
 			}else{
-				pageCode.append("<li class='disabled'><a href='#'>ÏÂÒ»Ò³</a></li>");
+				pageCode.append("<li class='disabled'><a href='#'>ä¸‹ä¸€é¡µ</a></li>");
 			}
 			pageCode.append("</ul>");
 			pageCode.append("</nav>");

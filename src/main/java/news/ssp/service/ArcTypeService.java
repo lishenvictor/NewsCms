@@ -6,42 +6,42 @@ import java.util.Map;
 import news.ssp.entity.ArcType;
 
 /**
- * 新闻类别Service接口
+ * 鏂伴椈绫诲埆Service鎺ュ彛
  * @author user
  *
  */
 public interface ArcTypeService {
 
 	/**
-	 * 根据条件分页查询博客类别集合
+	 * 鏍规嵁鏉′欢鍒嗛〉鏌ヨ鍗氬绫诲埆闆嗗悎
 	 * @param map
 	 * @return
 	 */
 	public List<ArcType> list(Map<String,Object> map);
 	
 	/**
-	 * 获取总记录数
+	 * 鑾峰彇鎬昏褰曟暟
 	 * @param map
 	 * @return
 	 */
 	public Long getTotal(Map<String,Object> map);
 	
 	/**
-	 * 博客类别添加
+	 * 鍗氬绫诲埆娣诲姞
 	 * @param arcType
 	 * @return
 	 */
 	public Integer add(ArcType arcType);
 	
 	/**
-	 * 博客类别更新
+	 * 鍗氬绫诲埆鏇存柊
 	 * @param arcType
 	 * @return
 	 */
 	public Integer update(ArcType arcType);
 	
 	/**
-	 * 博客类型删除
+	 * 鍗氬绫诲瀷鍒犻櫎
 	 * @param id
 	 * @return
 	 */

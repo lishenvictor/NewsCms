@@ -12,7 +12,7 @@ import news.ssp.entity.Link;
 import news.ssp.service.LinkService;
 
 /**
- * ÓÑÇéÁ´½ÓServiceÊµÏÖÀà
+ * å‹æƒ…é“¾æ¥Serviceå®ç°ç±»
  * @author user
  *
  */

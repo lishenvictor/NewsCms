@@ -73,13 +73,16 @@
 
     function closeArcTypeDialog(){
         $("#cutWordTitle").html("");
+        $("#keyWord").html("");
         $("#cutWordContent").html("");
         $("#dlg").dialog("close");
     }
 
     function openCutWordDialog(){
         $("#cutWordTitle").html("");
+        $("#keyWord").html("");
         $("#cutWordContent").html("");
+
         var selectedRows=$("#dg").datagrid("getSelections");
         if(selectedRows.length!=1){
             $.messager.alert("系统提示","请选择一条要分词的数据");
@@ -91,6 +94,7 @@
         $.post("${pageContext.request.contextPath}/admin/article/cutWord.do",{'id':row.id},function(result){
             if(result.success){
                 $("#cutWordTitle").html("<h1>标题分词结果：<br/></h1><h2>"+result.cutWordTitle+"</h2>");
+                $("#keyWord").html("<h1>关键字：<br/></h1><h2>"+result.keyWord+"</h2>");
                 $("#cutWordContent").html("<h1>内容分词结果：<br/></h1><h2>"+result.cutWordContent+"</h2>");
 
             }else{
@@ -132,8 +136,8 @@
 
 <div id="dlg" class="easyui-dialog" style="width: 800px;height: 500px;padding: 10px 20px" closed="true" buttons="#dlg-buttons">
 	<div id="cutWordTitle"></div>
+	<div id="keyWord"></div>
 	<div id="cutWordContent"></div>
-
 </div>
 
 <div id="dlg-buttons">

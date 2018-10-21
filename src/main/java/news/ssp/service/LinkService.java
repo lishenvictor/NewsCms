@@ -6,42 +6,42 @@ import java.util.Map;
 import news.ssp.entity.Link;
 
 /**
- * 友情链接Service接口
+ * 鍙嬫儏閾炬帴Service鎺ュ彛
  * @author user
  *
  */
 public interface LinkService {
 
 	/**
-	 * 根据条件分页查询友情链接集合
+	 * 鏍规嵁鏉′欢鍒嗛〉鏌ヨ鍙嬫儏閾炬帴闆嗗悎
 	 * @param map
 	 * @return
 	 */
 	public List<Link> list(Map<String,Object> map);
 	
 	/**
-	 * 获取总记录数
+	 * 鑾峰彇鎬昏褰曟暟
 	 * @param map
 	 * @return
 	 */
 	public Long getTotal(Map<String,Object> map);
 	
 	/**
-	 * 友情链接添加
+	 * 鍙嬫儏閾炬帴娣诲姞
 	 * @param link
 	 * @return
 	 */
 	public Integer add(Link link);
 	
 	/**
-	 * 友情链接更新
+	 * 鍙嬫儏閾炬帴鏇存柊
 	 * @param link
 	 * @return
 	 */
 	public Integer update(Link link);
 	
 	/**
-	 * 友情链接删除
+	 * 鍙嬫儏閾炬帴鍒犻櫎
 	 * @param id
 	 * @return
 	 */

@@ -6,90 +6,90 @@ import java.util.Map;
 import news.ssp.entity.Article;
 
 /**
- * ĞÂÎÅService½Ó¿Ú
+ * æ–°é—»Serviceæ¥å£
  * @author user
  *
  */
 public interface ArticleService {
 
 	/**
-	 * ²éÑ¯Ö´ĞĞĞÂÎÅÀà±ğÏÂµÄĞÂÎÅ¸öÊı
+	 * æŸ¥è¯¢æ‰§è¡Œæ–°é—»ç±»åˆ«ä¸‹çš„æ–°é—»ä¸ªæ•°
 	 * @param typeId
 	 * @return
 	 */
 	public Integer getNumByTypeId(Integer typeId);
 	
 	/**
-	 * ¸ù¾İÌõ¼ş·ÖÒ³²éÑ¯²©¿Í¼¯ºÏ
+	 * æ ¹æ®æ¡ä»¶åˆ†é¡µæŸ¥è¯¢åšå®¢é›†åˆ
 	 * @param map
 	 * @return
 	 */
 	public List<Article> list(Map<String,Object> map);
 	
 	/**
-	 * »ñÈ¡×Ü¼ÇÂ¼Êı
+	 * è·å–æ€»è®°å½•æ•°
 	 * @param map
 	 * @return
 	 */
 	public Long getTotal(Map<String,Object> map);
 	
 	/**
-	 * »ñÈ¡7ÌõÈÈÃÅĞÂÎÅ
+	 * è·å–7æ¡çƒ­é—¨æ–°é—»
 	 * @return
 	 */
 	public List<Article> getHot();
 	
 	/**
-	 * Ìí¼ÓĞÂÎÅĞÅÏ¢
+	 * æ·»åŠ æ–°é—»ä¿¡æ¯
 	 * @param article
 	 * @return
 	 */
 	public Integer add(Article article);
 	
 	/**
-	 * É¾³ıĞÂÎÅĞÅÏ¢
+	 * åˆ é™¤æ–°é—»ä¿¡æ¯
 	 * @param id
 	 * @return
 	 */
 	public Integer delete(Integer id);
 	
 	/**
-	 * ĞŞ¸ÄĞÂÎÅĞÅÏ¢
+	 * ä¿®æ”¹æ–°é—»ä¿¡æ¯
 	 * @param article
 	 * @return
 	 */
 	public Integer update(Article article);
 	
 	/**
-	 * Í¨¹ıid²éÑ¯ĞÂÎÅ
+	 * é€šè¿‡idæŸ¥è¯¢æ–°é—»
 	 * @param id
 	 * @return
 	 */
 	public Article findById(Integer id);
 	
 	/**
-	 * ¸ù¾İÌõ¼ş·ÖÒ³²éÑ¯²©¿Í¼¯ºÏ ¸ù¾İ·¢²¼ÈÕÆÚ½µĞòÅÅÁĞ
+	 * æ ¹æ®æ¡ä»¶åˆ†é¡µæŸ¥è¯¢åšå®¢é›†åˆ æ ¹æ®å‘å¸ƒæ—¥æœŸé™åºæ’åˆ—
 	 * @param map
 	 * @return
 	 */
 	public List<Article> list2(Map<String,Object> map);
 	
 	/**
-	 * »ñÈ¡×Ü¼ÇÂ¼Êı
+	 * è·å–æ€»è®°å½•æ•°
 	 * @param map
 	 * @return
 	 */
 	public Long getTotal2(Map<String,Object> map);
 	
 	/**
-	 * »ñÈ¡ÉÏÒ»¸öĞÂÎÅ
+	 * è·å–ä¸Šä¸€ä¸ªæ–°é—»
 	 * @param id
 	 * @return
 	 */
 	public Article getLastArticle(Integer id);
 	
 	/**
-	 * »ñÈ¡ÏÂÒ»¸öĞÂÎÅ
+	 * è·å–ä¸‹ä¸€ä¸ªæ–°é—»
 	 * @param id
 	 * @return
 	 */

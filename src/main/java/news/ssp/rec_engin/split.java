@@ -5,6 +5,8 @@ package news.ssp.rec_engin;
  * 这个类用来完成分词功能.
  */
 
+import org.ansj.app.keyword.KeyWordComputer;
+import org.ansj.app.keyword.Keyword;
 import org.ansj.domain.Result;
 import org.ansj.domain.Term;
 import org.ansj.recognition.impl.StopRecognition;
@@ -17,6 +19,7 @@ import org.wltea.analyzer.lucene.IKAnalyzer;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -185,6 +188,23 @@ public class split {
             }
         }
         System.out.println();
+        return sb;
+    }
+
+    public StringBuffer getKeyWord(String str){
+
+        StringBuffer sb = new StringBuffer();
+        KeyWordComputer key=new KeyWordComputer(10);
+        Iterator it = key.computeArticleTfidf(str).iterator() ;
+        StringBuffer value = new StringBuffer();
+        while(it.hasNext()) {
+            Keyword key2=(Keyword)it.next();
+            value.append(key2.getName()+"="+key2.getFreq()+" ");
+        }
+        String out = value.toString();
+        String OutValue = out.substring(0, out.length()-1);
+        sb.append(OutValue);
+        System.out.println(OutValue);
         return sb;
     }
 

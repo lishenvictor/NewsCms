@@ -38,7 +38,7 @@ import news.ssp.util.DateUtil;
 import news.ssp.util.StringUtil;
 
 /**
- * ²©¿ÍË÷ÒıÀà
+ * åšå®¢ç´¢å¼•ç±»
  * @author Administrator
  *
  */
@@ -47,7 +47,7 @@ public class ArticleIndex {
 	private Directory dir;
 	
 	/**
-	 * »ñÈ¡IndexWriterÊµÀı
+	 * è·å–IndexWriterå®ä¾‹
 	 * @return
 	 * @throws Exception
 	 */
@@ -61,7 +61,7 @@ public class ArticleIndex {
 	}
 	
 	/**
-	 * Ìí¼Ó²©¿ÍË÷Òı
+	 * æ·»åŠ åšå®¢ç´¢å¼•
 	 * @param article
 	 * @throws Exception
 	 */
@@ -82,20 +82,20 @@ public class ArticleIndex {
 	}
 	
 	/**
-	 * É¾³ıÖ¸¶¨²©¿ÍµÄË÷Òı
+	 * åˆ é™¤æŒ‡å®šåšå®¢çš„ç´¢å¼•
 	 * @param articleId
 	 * @throws Exception
 	 */
 	public void deleteIndex(String articleId)throws Exception{
 			IndexWriter writer=getWriter();
 			writer.deleteDocuments(new Term("id",articleId));
-			writer.forceMergeDeletes(); // Ç¿ÖÆÉ¾³ı
+			writer.forceMergeDeletes(); // å¼ºåˆ¶åˆ é™¤
 			writer.commit();
 			writer.close();
 		}
 	
 	/**
-	 * ¸üĞÂ²©¿ÍË÷Òı
+	 * æ›´æ–°åšå®¢ç´¢å¼•
 	 * @param article
 	 * @throws Exception
 	 */
@@ -112,7 +112,7 @@ public class ArticleIndex {
 	}
 	
 	/**
-	 * ²éÑ¯²©¿ÍĞÅÏ¢
+	 * æŸ¥è¯¢åšå®¢ä¿¡æ¯
 	 * @param q
 	 * @return
 	 * @throws Exception

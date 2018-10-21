@@ -9,7 +9,7 @@ import news.ssp.entity.Manager;
 import news.ssp.service.ManagerService;
 
 /**
- * ¹ÜÀíÔ±ServiceÊµÏÖÀà
+ * ç®¡ç†å‘˜Serviceå®ç°ç±»
  * @author user
  *
  */

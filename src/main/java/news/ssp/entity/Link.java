@@ -1,16 +1,16 @@
 package news.ssp.entity;
 
 /**
- * 友情链接实体
+ * 鍙嬫儏閾炬帴瀹炰綋
  * @author user
  *
  */
 public class Link {
 
-	private Integer id; // 编号
-	private String name; // 链接名称
-	private String url; // 链接地址
-	private Integer sortNo; // 排列序号
+	private Integer id; // 缂栧彿
+	private String name; // 閾炬帴鍚嶇О
+	private String url; // 閾炬帴鍦板潃
+	private Integer sortNo; // 鎺掑垪搴忓彿
 	
 	public Integer getId() {
 		return id;

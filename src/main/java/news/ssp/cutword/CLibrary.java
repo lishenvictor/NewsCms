@@ -5,36 +5,36 @@ import com.sun.jna.Library;
 
 public interface CLibrary extends Library {
 
-    //³õÊ¼»¯
+    //åˆå§‹åŒ–
     public int NLPIR_Init(String sDataPath, int encoding, String sLicenceCode);
-    // ´ÊÆµÍ³¼Æ¹¦ÄÜ£¬sTextÎª×Ö·û´®ÎÄ±¾
+    // è¯é¢‘ç»Ÿè®¡åŠŸèƒ½ï¼ŒsTextä¸ºå­—ç¬¦ä¸²æ–‡æœ¬
     public String NLPIR_WordFreqStat(String sText);
-    //¶Ô×Ö·û´®½øĞĞ·Ö´Ê
+    //å¯¹å­—ç¬¦ä¸²è¿›è¡Œåˆ†è¯
     public String NLPIR_ParagraphProcess(String sSrc, int bPOSTagged);
-    //¶ÔTXTÎÄ¼şÄÚÈİ½øĞĞ·Ö´Ê
+    //å¯¹TXTæ–‡ä»¶å†…å®¹è¿›è¡Œåˆ†è¯
     public double NLPIR_FileProcess(String sSourceFilename,String sResultFilename, int bPOStagged);
-    //´Ó×Ö·û´®ÖĞÌáÈ¡¹Ø¼ü´Ê
+    //ä»å­—ç¬¦ä¸²ä¸­æå–å…³é”®è¯
     public String NLPIR_GetKeyWords(String sLine, int nMaxKeyLimit,boolean bWeightOut);
-    //´ÓTXTÎÄ¼şÖĞÌáÈ¡¹Ø¼ü´Ê
+    //ä»TXTæ–‡ä»¶ä¸­æå–å…³é”®è¯
     public String NLPIR_GetFileKeyWords(String sLine, int nMaxKeyLimit,boolean bWeightOut);
-    //Ìí¼Óµ¥ÌõÓÃ»§´Êµä
+    //æ·»åŠ å•æ¡ç”¨æˆ·è¯å…¸
     public int NLPIR_AddUserWord(String sWord);
-    //É¾³ıµ¥ÌõÓÃ»§´Êµä
+    //åˆ é™¤å•æ¡ç”¨æˆ·è¯å…¸
     public int NLPIR_DelUsrWord(String sWord);
-    //´ÓTXTÎÄ¼şÖĞµ¼ÈëÓÃ»§´Êµä
+    //ä»TXTæ–‡ä»¶ä¸­å¯¼å…¥ç”¨æˆ·è¯å…¸
     public int NLPIR_ImportUserDict(String sFilename);
-    //½«ÓÃ»§´Êµä±£´æÖÁÓ²ÅÌ
+    //å°†ç”¨æˆ·è¯å…¸ä¿å­˜è‡³ç¡¬ç›˜
     public int NLPIR_SaveTheUsrDic();
-    //´Ó×Ö·û´®ÖĞ»ñÈ¡ĞÂ´Ê
+    //ä»å­—ç¬¦ä¸²ä¸­è·å–æ–°è¯
     public String NLPIR_GetNewWords(String sLine, int nMaxKeyLimit, boolean bWeightOut);
-    //´ÓTXTÎÄ¼şÖĞ»ñÈ¡ĞÂ´Ê
+    //ä»TXTæ–‡ä»¶ä¸­è·å–æ–°è¯
     public String NLPIR_GetFileNewWords(String sTextFile,int nMaxKeyLimit, boolean bWeightOut);
-    //»ñÈ¡Ò»¸ö×Ö·û´®µÄÖ¸ÎÆÖµ
+    //è·å–ä¸€ä¸ªå­—ç¬¦ä¸²çš„æŒ‡çº¹å€¼
     public long NLPIR_FingerPrint(String sLine);
-    //ÉèÖÃÒªÊ¹ÓÃµÄPOS map
+    //è®¾ç½®è¦ä½¿ç”¨çš„POS map
     public int NLPIR_SetPOSmap(int nPOSmap);
-    //»ñÈ¡±¨´íÈÕÖ¾
+    //è·å–æŠ¥é”™æ—¥å¿—
     public String NLPIR_GetLastErrorMsg();
-    //ÍË³ö
+    //é€€å‡º
     public void NLPIR_Exit();
 }

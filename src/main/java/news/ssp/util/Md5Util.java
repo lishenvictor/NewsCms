@@ -3,7 +3,7 @@ package news.ssp.util;
 import org.apache.shiro.crypto.hash.Md5Hash;
 
 /**
- * Md5¼ÓÃÜ¹¤¾ßÀà
+ * Md5åŠ å¯†å·¥å…·ç±»
  * @author user
  *
  */
@@ -12,7 +12,7 @@ public class Md5Util {
 	public static final String SALT="lishenvictor";
 	
 	/**
-	 * Md5¼ÓÃÜ
+	 * Md5åŠ å¯†
 	 * @param str
 	 * @param salt
 	 * @return

@@ -14,7 +14,7 @@ import news.ssp.util.Md5Util;
 import net.sf.json.JSONObject;
 
 /**
- * ºóÌ¨¹ÜÀí¹ÜÀíÔ±ControllerÀà
+ * åå°ç®¡ç†ç®¡ç†å‘˜Controllerç±»
  * @author user
  *
  */
@@ -26,7 +26,7 @@ public class ManagerAdminController {
 	private ManagerService managerService;
 	
 	/**
-	 * ĞŞ¸Ä¹ÜÀíÔ±ÃÜÂë
+	 * ä¿®æ”¹ç®¡ç†å‘˜å¯†ç 
 	 * @param newPassword
 	 * @param response
 	 * @return
@@ -48,7 +48,7 @@ public class ManagerAdminController {
 	}
 	
 	/**
-	 * ×¢Ïú
+	 * æ³¨é”€
 	 * @return
 	 * @throws Exception
 	 */

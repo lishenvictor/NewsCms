@@ -29,7 +29,7 @@ import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 
 /**
- * ºóÌ¨¹ÜÀí²©¿ÍControllerÀà
+ * åå°ç®¡ç†åšå®¢Controllerç±»
  * @author user
  *
  */
@@ -49,12 +49,12 @@ public class ArticleAdminController {
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		dateFormat.setLenient(false); // ÑÏ¸ñ½âÎö
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));   //true:ÔÊĞíÊäÈë¿ÕÖµ£¬false:²»ÄÜÎª¿ÕÖµ
+		dateFormat.setLenient(false); // ä¸¥æ ¼è§£æ
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));   //true:å…è®¸è¾“å…¥ç©ºå€¼ï¼Œfalse:ä¸èƒ½ä¸ºç©ºå€¼
 	}
 	
 	/**
-	 * ·ÖÒ³²éÑ¯²©¿ÍĞÅÏ¢
+	 * åˆ†é¡µæŸ¥è¯¢åšå®¢ä¿¡æ¯
 	 * @param page
 	 * @param rows
 	 * @param response
@@ -81,7 +81,7 @@ public class ArticleAdminController {
 	}
 	
 	/**
-	 * Ìí¼Ó»òÕßĞŞ¸ÄĞÂÎÅ
+	 * æ·»åŠ æˆ–è€…ä¿®æ”¹æ–°é—»
 	 * @param article
 	 * @param response
 	 * @return
@@ -89,7 +89,7 @@ public class ArticleAdminController {
 	 */
 	@RequestMapping("/save")
 	public String save(Article article,HttpServletResponse response)throws Exception{
-		int resultTotal=0; // ²Ù×÷µÄ¼ÇÂ¼ÌõÊı
+		int resultTotal=0; // æ“ä½œçš„è®°å½•æ¡æ•°
 		if(article.getId()==null){
 			if(article.getState()==1){
 				article.setReleaseDate(new Date());				
@@ -103,13 +103,13 @@ public class ArticleAdminController {
 			}else{
 				article.setReleaseDate(null);
 			}		
-			System.out.println("ÍâÃæ "+articleService.findById(article.getId()).getReleaseDate());
+			System.out.println("å¤–é¢ "+articleService.findById(article.getId()).getReleaseDate());
 			
 			if(articleService.findById(article.getId()).getReleaseDate()==null){
-				System.out.println("ÀïÃæ");
+				System.out.println("é‡Œé¢");
 				System.out.println(article.getContentNoTag());
 				articleIndex.addIndex(article);
-				System.out.println(" Íê³É");
+				System.out.println(" å®Œæˆ");
 			}else{
 				articleIndex.updateIndex(article);
 			}
@@ -127,7 +127,7 @@ public class ArticleAdminController {
 	}
 	
 	/**
-	 * É¾³ıĞÂÎÅĞÅÏ¢
+	 * åˆ é™¤æ–°é—»ä¿¡æ¯
 	 * @param ids
 	 * @param response
 	 * @return
@@ -153,7 +153,7 @@ public class ArticleAdminController {
 	}
 	
 	/**
-	 * Í¨¹ıID²éÕÒÊµÌå
+	 * é€šè¿‡IDæŸ¥æ‰¾å®ä½“
 	 * @param id
 	 * @param response
 	 * @return
@@ -170,7 +170,7 @@ public class ArticleAdminController {
 	}
 
 	/**
-	 * ·Ö´Ê ¼ÆËãÏàËÆ¶È
+	 * åˆ†è¯ è®¡ç®—ç›¸ä¼¼åº¦
 	 * @param id
 	 * @param response
 	 * @return
@@ -182,7 +182,7 @@ public class ArticleAdminController {
 		JSONObject result=new JSONObject();
 		StringBuffer cutWordTitle = new StringBuffer();
 		StringBuffer cutWordContent = new StringBuffer();
-
+		StringBuffer keyWord = new StringBuffer();
 
 		split sw = new split();
 		Set<String> expectedNature = new HashSet<String>() {{
@@ -190,18 +190,20 @@ public class ArticleAdminController {
 		}};
 
         /*
-        ĞèÒª¹ıÂËÆ÷µÄ»°¾Í¼Ó
+        éœ€è¦è¿‡æ»¤å™¨çš„è¯å°±åŠ 
          */
-		StopRecognition filter = new StopRecognition();//ÊµÓÃ»¯¹ıÂËÆ÷,Ìí¼Ó¹ıÂË´Ê
-		filter.insertStopWords("±à¼­");
-		filter.insertStopWords("×÷Õß");
+		StopRecognition filter = new StopRecognition();//å®ç”¨åŒ–è¿‡æ»¤å™¨,æ·»åŠ è¿‡æ»¤è¯
+		filter.insertStopWords("ç¼–è¾‘");
+		filter.insertStopWords("ä½œè€…");
 		cutWordTitle = sw.getFilterWordReturn(article.getTitle(),expectedNature,filter);
 		cutWordContent = sw.getFilterWordReturn(article.getPurecontent(),expectedNature,filter);
+		keyWord = sw.getKeyWord(article.getContent());
 		if(cutWordTitle != null && cutWordContent !=null) {
 				initComponent.refreshSystem(ContextLoader.getCurrentWebApplicationContext().getServletContext());
 				result.put("success", true);
 				result.put("cutWordTitle",cutWordTitle.toString());
 				result.put("cutWordContent",cutWordContent.toString());
+				result.put("keyWord",keyWord.toString());
 		}else{
 			result.put("success", false);
 

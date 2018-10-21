@@ -3,24 +3,24 @@ package news.ssp.entity;
 import java.util.Date;
 
 /**
- * ĞÂÎÅÊµÌåÀà
+ * æ–°é—»å®ä½“ç±»
  * @author user
  *
  */
 public class Article {
 
-	private Integer id; // ±àºÅ
-	private String title; // ±êÌâ
-	private String content; // ÄÚÈİ
-	private String summary; // ÕªÒª
-	private Date crawlerDate; // ×¥È¡ÈÕÆÚ
-	private Date releaseDate; // ·¢²¼ÈÕÆÚ
-	private Integer clickHit; // ä¯ÀÀ´ÎÊı
-	private ArcType arcType; // ĞÂÎÅÀà±ğ
-	private String tags; // ĞÂÎÅ±êÇ©
-	private String orUrl; // Ô­Ê¼µØÖ·
-	private Integer state; // ĞÂÎÅ×´Ì¬ 0 Î´·¢²¼ 1 ·¢²¼ Ä¬ÈÏ0
-	private String releaseDateStr; // ·¢²¼ÈÕÆÚµÄ×Ö·û´® Ö»È¡ÄêºÍÔÂ
+	private Integer id; // ç¼–å·
+	private String title; // æ ‡é¢˜
+	private String content; // å†…å®¹
+	private String summary; // æ‘˜è¦
+	private Date crawlerDate; // æŠ“å–æ—¥æœŸ
+	private Date releaseDate; // å‘å¸ƒæ—¥æœŸ
+	private Integer clickHit; // æµè§ˆæ¬¡æ•°
+	private ArcType arcType; // æ–°é—»ç±»åˆ«
+	private String tags; // æ–°é—»æ ‡ç­¾
+	private String orUrl; // åŸå§‹åœ°å€
+	private Integer state; // æ–°é—»çŠ¶æ€ 0 æœªå‘å¸ƒ 1 å‘å¸ƒ é»˜è®¤0
+	private String releaseDateStr; // å‘å¸ƒæ—¥æœŸçš„å­—ç¬¦ä¸² åªå–å¹´å’Œæœˆ
 	private String contentNoTag;
 	private String source;
 	private String purecontent;

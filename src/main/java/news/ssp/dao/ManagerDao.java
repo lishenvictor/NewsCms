@@ -3,21 +3,21 @@ package news.ssp.dao;
 import news.ssp.entity.Manager;
 
 /**
- * ¹ÜÀíÔ±Dao½Ó¿Ú
+ * ç®¡ç†å‘˜Daoæ¥å£
  * @author user
  *
  */
 public interface ManagerDao {
 
 	/**
-	 * Í¨¹ıÓÃ»§Ãû²éÕÒÓÃ»§ÊµÌå
+	 * é€šè¿‡ç”¨æˆ·åæŸ¥æ‰¾ç”¨æˆ·å®ä½“
 	 * @param userName
 	 * @return
 	 */
 	public Manager getByUserName(String userName);
 	
 	/**
-	 * ¸üĞÂ¹ÜÀíÔ±ĞÅÏ¢
+	 * æ›´æ–°ç®¡ç†å‘˜ä¿¡æ¯
 	 * @param manager
 	 * @return
 	 */
