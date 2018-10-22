@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="news.ssp.dao.UserDao_1">
+
+	<resultMap type="User" id="UserResult">
+		<result property="id" column="id"/>
+		<result property="userName" column="userName"/>
+		<result property="password" column="password"/>
+		<result property="email" column="email"/>
+	</resultMap>
+
+	<insert id="add" parameterType="User">
+		insert into t_user values(null,#{userName},#{password},#{email});
+	</insert>
+
+	<select id="getByUserName" parameterType="Map" resultMap="UserResult">
+		select * from t_user where userName=#{userName}
+	</select>
+
+	<select id="getByUserNameAndPassWord" parameterType="java.lang.String" resultMap="UserResult">
+		select * from t_user where userName=#{0} and password=#{1}
+	</select>
+	
+	<update id="update" parameterType="User">
+		update t_user
+		<set>
+			<if test="password!=null and password!='' ">
+				password=#{password},
+			</if>
+		</set>
+		where id=1
+	</update>
+	
+</mapper> 

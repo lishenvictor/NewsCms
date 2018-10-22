@@ -2,6 +2,7 @@ package news.ssp.util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * 字符串工具类
@@ -50,7 +51,7 @@ public class StringUtil {
 	}
 	
 	/**
-	 * 过滤集合里的空格
+	 * 过滤掉集合里的空格
 	 * @param list
 	 * @return
 	 */
@@ -63,5 +64,36 @@ public class StringUtil {
 		}
 		return resultList;
 	}
+	
+	/**
+	 * 去除html标签
+	 */
+	public static String stripHtml(String content) { 
+	    // <p>段落替换为换行 
+	    content = content.replaceAll("<p .*?>", "\r\n"); 
+	    // <br><br/>替换为换行 
+	    content = content.replaceAll("<br\\s*/?>", "\r\n"); 
+	    // 去掉其它的<>之间的东西 
+	    content = content.replaceAll("\\<.*?>", ""); 
+	    // 去掉空格 
+	    content = content.replaceAll(" ", ""); 
+	    return content;   
+	}
+	
+	/**
+	 * 生成六位随机数
+	 * @return
+	 */
+	public static String genSixRandomNum(){
+		Random random = new Random();
+		String result="";
+		for (int i=0;i<6;i++)
+		{
+			result+=random.nextInt(10);
+		}
+		return result;
+	}
+	
+
 
 }

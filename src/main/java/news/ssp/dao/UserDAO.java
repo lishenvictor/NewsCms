@@ -2,6 +2,7 @@ package news.ssp.dao;
 
 
 import news.ssp.dbm.Dbmanage;
+import news.ssp.entity.User;
 import news.ssp.entity.UserVo;
 
 import java.sql.Connection;
