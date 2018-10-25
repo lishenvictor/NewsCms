@@ -52,7 +52,7 @@ public class ArticleIndex {
 	 * @throws Exception
 	 */
 	private IndexWriter getWriter()throws Exception{
-		dir=FSDirectory.open(Paths.get("D://lucene"));
+		dir=FSDirectory.open(Paths.get("E://project/lucene"));
 		System.out.println("1234"+dir);
 		SmartChineseAnalyzer analyzer=new SmartChineseAnalyzer();
 		IndexWriterConfig iwc=new IndexWriterConfig(analyzer);
@@ -118,7 +118,7 @@ public class ArticleIndex {
 	 * @throws Exception
 	 */
 	public List<Article> searchArticle(String q)throws Exception{
-		dir=FSDirectory.open(Paths.get("D://lucene"));
+		dir=FSDirectory.open(Paths.get("E://project/lucene"));
 		IndexReader reader=DirectoryReader.open(dir);
 		IndexSearcher is=new IndexSearcher(reader);
 		BooleanQuery.Builder booleanQuery=new BooleanQuery.Builder();
