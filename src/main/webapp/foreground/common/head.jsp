@@ -10,12 +10,8 @@
 			<c:choose>
 				<c:when test="${not empty currentUser }">
 					<li style="float: right;" style="padding-left: 8px;padding-right: 8px;">
-						<font size="3">&nbsp;&nbsp;欢迎：<strong>${currentUser.userName }</strong></font>
-					</li>
-					<li>
-						<a href="${pageContext.request.contextPath}/user/logout.do">安全退出</a>
-					</li>
-					<li>
+						<font size="3">欢迎：<strong>${currentUser.userName }</strong></font>&nbsp;
+						<a href="${pageContext.request.contextPath}/user/logout.do">安全退出</a>&nbsp;
 						<a onclick="showModifyPassword()">修改密码</a>
 					</li>
 				</c:when>
